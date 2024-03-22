@@ -17,12 +17,12 @@
     ?>
     <main class="form-and-title-container">
         <h1 class="apply-title">Interested in our company?</h1>
-        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" id="jobApplicationForm"
-            onsubmit="return validateForm()">
+        <form action="processEOI.php" method="post" id="jobApplicationForm"
+            novalidate=”novalidate”>
             <h2>Job Application Form</h2>
             <!-- Job Information -->
             <div class="input-field">
-                <input type="text" id="jobReference" name="jobReference" pattern="[A-Za-z0-9]{5}" required
+                <input type="text" id="jobReference" name="jobReference" value="<?php echo isset($_POST['jobReference']) ? htmlspecialchars(stripcslashes(trim($_POST['jobReference']))) : ''; ?>" pattern="[A-Za-z0-9]{5}" required
                     placeholder=" ">
                 <span>Job reference number</span>
             </div>
@@ -30,17 +30,17 @@
             <!-- Applicant Information -->
             <div class="name">
                 <div class="input-field">
-                    <input type="text" id="firstName" name="firstName" pattern="[a-zA-Z]{0,20}" required
+                    <input type="text" id="firstName" name="firstName" value="<?php echo isset($_POST['firstName']) ? htmlspecialchars(stripcslashes(trim($_POST['firstName']))) : ''; ?>" pattern="[a-zA-Z]{0,20}" required
                         placeholder=" ">
                     <span>First name</span>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="lastName" name="lastName" pattern="[a-zA-Z]{0,20}" required placeholder=" ">
+                    <input type="text" id="lastName" name="lastName" value="<?php echo isset($_POST['lastName']) ? htmlspecialchars(stripcslashes(trim($_POST['lastName']))) : ''; ?>" pattern="[a-zA-Z]{0,20}" required placeholder=" ">
                     <span>Last name</span>
                 </div>
             </div>
             <div class="input-field">
-                <input type="text" id="dob" name="dob" pattern="\d{2}/\d{2}/\d{4}" required placeholder=" ">
+                <input type="date" id="dob" name="dob" value="<?php echo isset($_POST['dob']) ? htmlspecialchars(stripcslashes(trim($_POST['dob']))) : ''; ?>" required placeholder=" ">
                 <span>Date of birth (dd/mm/yyyy)</span>
             </div>
             <fieldset>
@@ -57,12 +57,12 @@
 
             <!-- Address Information -->
             <div class="input-field">
-                <input type="text" id="streetAddress" name="streetAddress" maxlength="40" required placeholder=" ">
+                <input type="text" id="streetAddress" name="streetAddress" value="<?php echo isset($_POST['streetAddress']) ? htmlspecialchars(stripcslashes(trim($_POST['streetAddress']))) : ''; ?>" maxlength="40" required placeholder=" ">
                 <span>Street address</span>
             </div>
 
             <div class="input-field">
-                <input type="text" id="suburb" name="suburb" maxlength="40" required placeholder=" ">
+                <input type="text" id="suburb" name="suburb" value="<?php echo isset($_POST['suburb']) ? htmlspecialchars(stripcslashes(trim($_POST['suburb']))) : ''; ?>" maxlength="40" required placeholder=" ">
                 <span>Subrub/Town</span>
             </div>
 
@@ -82,17 +82,17 @@
             </fieldset>
 
             <div class="input-field">
-                <input type="text" id="postcode" name="postcode" pattern="\d{4}" required placeholder=" ">
+                <input type="text" id="postcode" name="postcode" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars(stripcslashes(trim($_POST['postcode']))) : ''; ?>" pattern="\d{4}" required placeholder=" ">
                 <span>Postcode: 4 digits</span>
             </div>
 
             <!-- Contact Information -->
             <div class="input-field">
-                <input type="email" id="email" name="email" required placeholder=" ">
+                <input type="email" id="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars(stripcslashes(trim($_POST['email']))) : ''; ?>" required placeholder=" ">
                 <span>Email</span>
             </div>
             <div class="input-field">
-                <input type="tel" id="phone" name="phone" pattern="[0-9\s]{8,12}" required placeholder=" ">
+                <input type="tel" id="phone" name="phone" value="<?php echo isset($_POST['phone']) ? htmlspecialchars(stripcslashes(trim($_POST['phone']))) : ''; ?>" pattern="[0-9\s]{8,12}" required placeholder=" ">
                 <span class="except">Phone number</span>
             </div>
 
@@ -130,7 +130,7 @@
                         <img src="images/dark/other-skills.svg" alt="Other Skills Icon" class="dark-mode-element">
                         <h4>Other</h4>
                     </label>
-                    <textarea id="other-textarea" name="other-skills" placeholder="Other skills"></textarea>
+                    <textarea id="other-textarea" name="other-skills" value="<?php echo isset($_POST['other-skills']) ? htmlspecialchars(stripcslashes(trim($_POST['other-skills']))) : ''; ?>" placeholder="Other skills"></textarea>
                 </li>
             </ul>
 
