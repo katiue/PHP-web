@@ -12,35 +12,9 @@
 </head>
 
 <body>
-    <header>
-        <img src="images/light/logo-with-text.svg" alt="Future Powered Solutions Logo"
-            class="light-mode-element nav-logo">
-        <img src="images/dark/logo-with-text.svg" alt="Future Powered Solutions Logo"
-            class="dark-mode-element nav-logo">
-        <nav>
-            <ul class="nav-list" id="nav-list">
-                <li><a class="nav-item" href="index.php">HOME</a></li>
-                <li><a class="nav-item" href="jobs.php">JOBS</a></li>
-                <li><a class="nav-item" href="apply.php">APPLY</a></li>
-                <li><a class="nav-item" href="about.php">ABOUT</a></li>
-                <li><a class="nav-item" href="enhancements.php">ENHANCEMENTS</a></li>
-                <li><a class="nav-item" href="mailto:104486332@student.swin.edu.au">EMAIL</a></li>
-                <a class="close-hamburger-menu" href="#">
-                    <img src="images/light/close.svg" alt="Close Menu Icon"
-                        class="light-mode-element hamburger-menu-icon">
-                    <img src="images/dark/close.svg" alt="Close Menu Icon"
-                        class="dark-mode-element hamburger-menu-icon">
-                </a>
-            </ul>
-            <a class="open-hamburger-menu" href="#nav-list">
-                <img src="images/light/hamburger-menu.svg" alt="Open Menu Icon"
-                    class="light-mode-element hamburger-menu-icon">
-                <img src="images/dark/hamburger-menu.svg" alt="Open Menu Icon"
-                    class="dark-mode-element hamburger-menu-icon">
-            </a>
-        </nav>
-    </header>
-
+    <?php
+        include("header.inc");
+    ?>
     <main>
         <section class="jobs-hero-section">
             <h1>Find your <span>dream job</span> here</h1>
@@ -54,17 +28,13 @@
                 <img src="images/light/data-science.svg" alt="Data Science Icon" class="light-mode-element">
                 <img src="images/dark/data-science.svg" alt="Data Science Icon" class="dark-mode-element">
                 <div class="double-quotes-container">
-                    <img src="images/light/double-quotes-start.svg" alt="Double Quotes Start Icon"
-                        class="light-mode-element quote-icon start-quote">
-                    <img src="images/dark/double-quotes-start.svg" alt="Double Quotes Start Icon"
-                        class="dark-mode-element quote-icon start-quote">
+                    <img src="images/light/double-quotes-start.svg" alt="Double Quotes Start Icon" class="light-mode-element quote-icon start-quote">
+                    <img src="images/dark/double-quotes-start.svg" alt="Double Quotes Start Icon" class="dark-mode-element quote-icon start-quote">
                     <p class="text-in-double-quotes">Data scientist (n.): Person who is better at statistics than any
                         software engineer and better at
                         software engineering than any statistician.</p>
-                    <img src="images/light/double-quotes-end.svg" alt="Double Quotes End Icon"
-                        class="light-mode-element quote-icon end-quote">
-                    <img src="images/dark/double-quotes-end.svg" alt="Double Quotes End Icon"
-                        class="dark-mode-element quote-icon end-quote">
+                    <img src="images/light/double-quotes-end.svg" alt="Double Quotes End Icon" class="light-mode-element quote-icon end-quote">
+                    <img src="images/dark/double-quotes-end.svg" alt="Double Quotes End Icon" class="dark-mode-element quote-icon end-quote">
                 </div>
                 <a href="https://twitter.com/josh_wills/status/198093512149958656?lang=en" target="_blank">
                     — Josh Wills
@@ -77,28 +47,22 @@
                 <h2 class="job-title">Data Scientist</h2>
 
                 <h3>
-                    <img src="images/light/description.svg" alt="Description Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/description.svg" alt="Description Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/description.svg" alt="Description Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/description.svg" alt="Description Icon" class="dark-mode-element description-title-icon">
                     Description
                 </h3>
                 <p>You will take a lead role in building visibility into what impacts AI is having in the world today
                     and developing tools to forecast future impacts.</p>
                 <h3>
-                    <img src="images/light/salary.svg" alt="Salary Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/salary.svg" alt="Salary Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/salary.svg" alt="Salary Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/salary.svg" alt="Salary Icon" class="dark-mode-element description-title-icon">
                     Annual Salary Range
                 </h3>
                 <p>$245,000—$310,000 USD</p>
 
                 <h3>
-                    <img src="images/light/responsibilities.svg" alt="Responsibilities Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/responsibilities.svg" alt="Responsibilities Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/responsibilities.svg" alt="Responsibilities Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/responsibilities.svg" alt="Responsibilities Icon" class="dark-mode-element description-title-icon">
                     Key Responsibilities
                 </h3>
                 <ol>
@@ -112,10 +76,8 @@
                 </ol>
 
                 <h3>
-                    <img src="images/light/qualifications.svg" alt="Qualifications Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/qualifications.svg" alt="Qualifications Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/qualifications.svg" alt="Qualifications Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/qualifications.svg" alt="Qualifications Icon" class="dark-mode-element description-title-icon">
                     Required Qualifications
                 </h3>
                 <ul>
@@ -137,10 +99,8 @@
                     </li>
                 </ul>
                 <h3>
-                    <img src="images/light/reference.svg" alt="Reference Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/reference.svg" alt="Reference Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/reference.svg" alt="Reference Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/reference.svg" alt="Reference Icon" class="dark-mode-element description-title-icon">
                     Reference Details
                 </h3>
                 <ul>
@@ -158,25 +118,18 @@
 
         <section class="job-listing">
             <aside class="side-content">
-                <img src="images/light/natural-language-processing.svg" alt="Natural Language Processing Icon"
-                    class="light-mode-element">
-                <img src="images/dark/natural-language-processing.svg" alt="Natural Language Processing Icon"
-                    class="dark-mode-element">
+                <img src="images/light/natural-language-processing.svg" alt="Natural Language Processing Icon" class="light-mode-element">
+                <img src="images/dark/natural-language-processing.svg" alt="Natural Language Processing Icon" class="dark-mode-element">
                 <div class="double-quotes-container">
-                    <img src="images/light/double-quotes-start.svg" alt="Double Quotes Start Icon"
-                        class="light-mode-element quote-icon start-quote">
-                    <img src="images/dark/double-quotes-start.svg" alt="Double Quotes Start Icon"
-                        class="dark-mode-element quote-icon start-quote">
+                    <img src="images/light/double-quotes-start.svg" alt="Double Quotes Start Icon" class="light-mode-element quote-icon start-quote">
+                    <img src="images/dark/double-quotes-start.svg" alt="Double Quotes Start Icon" class="dark-mode-element quote-icon start-quote">
                     <p class="text-in-double-quotes">NLP is not just a technology of the future; it’s a technology of
                         the now. Its potential to change our world is vast, and as we continue to learn and evolve with
                         it, the possibilities are truly endless.</p>
-                    <img src="images/light/double-quotes-end.svg" alt="Double Quotes End Icon"
-                        class="light-mode-element quote-icon end-quote">
-                    <img src="images/dark/double-quotes-end.svg" alt="Double Quotes End Icon"
-                        class="dark-mode-element quote-icon end-quote">
+                    <img src="images/light/double-quotes-end.svg" alt="Double Quotes End Icon" class="light-mode-element quote-icon end-quote">
+                    <img src="images/dark/double-quotes-end.svg" alt="Double Quotes End Icon" class="dark-mode-element quote-icon end-quote">
                 </div>
-                <a href="https://hackernoon.com/natural-language-processing-is-a-revolutionary-leap-for-tech-and-humanity-an-explanation"
-                    target="_blank">
+                <a href="https://hackernoon.com/natural-language-processing-is-a-revolutionary-leap-for-tech-and-humanity-an-explanation" target="_blank">
                     — Emma Thompson
                     <img src="images/light/right-arrow.svg" alt="Arrow Icon" class="light-mode-element arrow-icon">
                     <img src="images/dark/right-arrow.svg" alt="Arrow Icon" class="dark-mode-element arrow-icon">
@@ -187,29 +140,23 @@
                 <h2 class="job-title">NLP Engineer</h2>
 
                 <h3>
-                    <img src="images/light/description.svg" alt="Description Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/description.svg" alt="Description Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/description.svg" alt="Description Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/description.svg" alt="Description Icon" class="dark-mode-element description-title-icon">
                     Description
                 </h3>
                 <p>We are seeking a NLP Engineer to work closely with our growing AI/ML team to build and fine-tune
                     custom models.</p>
 
                 <h3>
-                    <img src="images/light/salary.svg" alt="Salary Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/salary.svg" alt="Salary Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/salary.svg" alt="Salary Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/salary.svg" alt="Salary Icon" class="dark-mode-element description-title-icon">
                     Annual Salary Range
                 </h3>
                 <p>$150,000—$210,000 USD</p>
 
                 <h3>
-                    <img src="images/light/responsibilities.svg" alt="Responsibilities Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/responsibilities.svg" alt="Responsibilities Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/responsibilities.svg" alt="Responsibilities Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/responsibilities.svg" alt="Responsibilities Icon" class="dark-mode-element description-title-icon">
                     Key Responsibilities
                 </h3>
                 <ol>
@@ -223,10 +170,8 @@
                 </ol>
 
                 <h3>
-                    <img src="images/light/qualifications.svg" alt="Qualifications Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/qualifications.svg" alt="Qualifications Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/qualifications.svg" alt="Qualifications Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/qualifications.svg" alt="Qualifications Icon" class="dark-mode-element description-title-icon">
                     Required Qualifications
                 </h3>
                 <ul>
@@ -250,10 +195,8 @@
                     </li>
                 </ul>
                 <h3>
-                    <img src="images/light/reference.svg" alt="Reference Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/reference.svg" alt="Reference Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/reference.svg" alt="Reference Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/reference.svg" alt="Reference Icon" class="dark-mode-element description-title-icon">
                     Reference Details
                 </h3>
                 <ul>
@@ -261,8 +204,7 @@
                     <li>Reports to: NLP Research Lead</li>
                 </ul>
 
-                <a href="https://community.openai.com/t/looking-for-an-nlp-engineer-to-join-our-team/18776"
-                    target="_blank">
+                <a href="https://community.openai.com/t/looking-for-an-nlp-engineer-to-join-our-team/18776" target="_blank">
                     Source: Endless AI
                     <img src="images/light/right-arrow.svg" alt="Arrow Icon" class="light-mode-element arrow-icon">
                     <img src="images/dark/right-arrow.svg" alt="Arrow Icon" class="dark-mode-element arrow-icon">
@@ -275,20 +217,15 @@
                 <img src="images/light/computer-vision.svg" alt="Computer Vision Icon" class="light-mode-element">
                 <img src="images/dark/computer-vision.svg" alt="Computer Vision Icon" class="dark-mode-element">
                 <div class="double-quotes-container">
-                    <img src="images/light/double-quotes-start.svg" alt="Double Quotes Start Icon"
-                        class="light-mode-element quote-icon start-quote">
-                    <img src="images/dark/double-quotes-start.svg" alt="Double Quotes Start Icon"
-                        class="dark-mode-element quote-icon start-quote">
+                    <img src="images/light/double-quotes-start.svg" alt="Double Quotes Start Icon" class="light-mode-element quote-icon start-quote">
+                    <img src="images/dark/double-quotes-start.svg" alt="Double Quotes Start Icon" class="dark-mode-element quote-icon start-quote">
                     <p class="text-in-double-quotes">The horizon for computer vision is brimming with potential. Its
                         prospective uses are vast, some even
                         bordering on the realms of sci-fi.</p>
-                    <img src="images/light/double-quotes-end.svg" alt="Double Quotes End Icon"
-                        class="light-mode-element quote-icon end-quote">
-                    <img src="images/dark/double-quotes-end.svg" alt="Double Quotes End Icon"
-                        class="dark-mode-element quote-icon end-quote">
+                    <img src="images/light/double-quotes-end.svg" alt="Double Quotes End Icon" class="light-mode-element quote-icon end-quote">
+                    <img src="images/dark/double-quotes-end.svg" alt="Double Quotes End Icon" class="dark-mode-element quote-icon end-quote">
                 </div>
-                <a href="https://www.linkedin.com/pulse/evolution-computer-vision-its-impact-real-world"
-                    target="_blank">
+                <a href="https://www.linkedin.com/pulse/evolution-computer-vision-its-impact-real-world" target="_blank">
                     — Intelliverse.ai
                     <img src="images/light/right-arrow.svg" alt="Arrow Icon" class="light-mode-element arrow-icon">
                     <img src="images/dark/right-arrow.svg" alt="Arrow Icon" class="dark-mode-element arrow-icon">
@@ -299,10 +236,8 @@
                 <h2 class="job-title">Computer Vision Engineer</h2>
 
                 <h3>
-                    <img src="images/light/description.svg" alt="Description Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/description.svg" alt="Description Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/description.svg" alt="Description Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/description.svg" alt="Description Icon" class="dark-mode-element description-title-icon">
                     Description
                 </h3>
                 <p>We are seeking a talented Computer Vision Engineer to join their team in Seattle WA. This will be
@@ -310,19 +245,15 @@
                     generation Augmented, Mixed, and Virtual Reality.</p>
 
                 <h3>
-                    <img src="images/light/salary.svg" alt="Salary Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/salary.svg" alt="Salary Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/salary.svg" alt="Salary Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/salary.svg" alt="Salary Icon" class="dark-mode-element description-title-icon">
                     Annual Salary Range
                 </h3>
                 <p>$160,000—$230,000 USD</p>
 
                 <h3>
-                    <img src="images/light/responsibilities.svg" alt="Responsibilities Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/responsibilities.svg" alt="Responsibilities Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/responsibilities.svg" alt="Responsibilities Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/responsibilities.svg" alt="Responsibilities Icon" class="dark-mode-element description-title-icon">
                     Key Responsibilities
                 </h3>
                 <ol>
@@ -336,10 +267,8 @@
                 </ol>
 
                 <h3>
-                    <img src="images/light/qualifications.svg" alt="Qualifications Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/qualifications.svg" alt="Qualifications Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/qualifications.svg" alt="Qualifications Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/qualifications.svg" alt="Qualifications Icon" class="dark-mode-element description-title-icon">
                     Required Qualifications
                 </h3>
                 <ul>
@@ -360,10 +289,8 @@
                 </ul>
 
                 <h3>
-                    <img src="images/light/reference.svg" alt="Reference Icon"
-                        class="light-mode-element description-title-icon">
-                    <img src="images/dark/reference.svg" alt="Reference Icon"
-                        class="dark-mode-element description-title-icon">
+                    <img src="images/light/reference.svg" alt="Reference Icon" class="light-mode-element description-title-icon">
+                    <img src="images/dark/reference.svg" alt="Reference Icon" class="dark-mode-element description-title-icon">
                     Reference Details
                 </h3>
                 <ul>
@@ -371,8 +298,7 @@
                     <li>Reports to: Computer Vision Research Manager</li>
                 </ul>
 
-                <a href="https://www.linkedin.com/jobs/computer-vision-engineer-jobs?currentJobId=3829265868&position=9&pageNum=0"
-                    target="_blank">
+                <a href="https://www.linkedin.com/jobs/computer-vision-engineer-jobs?currentJobId=3829265868&position=9&pageNum=0" target="_blank">
                     Source: Facebook
                     <img src="images/light/right-arrow.svg" alt="Arrow Icon" class="light-mode-element arrow-icon">
                     <img src="images/dark/right-arrow.svg" alt="Arrow Icon" class="dark-mode-element arrow-icon">
@@ -384,33 +310,15 @@
             <h2>Ready to enroll?</h2>
             <a href="apply.html" class="button">
                 <span>APPLY NOW
-                    <img src="images/light/right-arrow.svg" alt="Right Arrow Icon"
-                        class="light-mode-element arrow-icon">
+                    <img src="images/light/right-arrow.svg" alt="Right Arrow Icon" class="light-mode-element arrow-icon">
                     <img src="images/dark/right-arrow.svg" alt="Right Arrow Icon" class="dark-mode-element arrow-icon">
                 </span>
             </a>
         </section>
     </main>
-
-    <footer>
-        <a href="https://maps.google.com?q=A35+Bach+Dang+Street,+Tan+Binh+District,+Ho+Chi+Minh+City,+Viet+Nam"
-            target="_blank" class="contact-item">
-            <img src="images/light/address.svg" alt="Address Icon" class="light-mode-element contact-icon">
-            <img src="images/dark/address.svg" alt="Address Icon" class="dark-mode-element contact-icon">
-            <p>A35 Bach Dang Street, Tan Binh District, Ho Chi Minh City, Viet Nam.</p>
-        </a>
-        <a href="tel:+84387148555" class="contact-item">
-            <img src="images/light/phone.svg" alt="Phone Icon" class="light-mode-element contact-icon">
-            <img src="images/dark/phone.svg" alt="Phone Icon" class="dark-mode-element contact-icon">
-            <p>+84387148555</p>
-        </a>
-        <a href="mailto:104486332@student.swin.edu.au" class="contact-item">
-            <img src="images/light/email.svg" alt="Email Icon" class="light-mode-element contact-icon">
-            <img src="images/dark/email.svg" alt="Email Icon" class="dark-mode-element contact-icon">
-            <p>104486332@student.swin.edu.au</p>
-        </a>
-        <p>© 2024 Future Powered Solutions</p>
-    </footer>
+    <?php
+    include("footer.inc");
+    ?>
 
 </body>
 

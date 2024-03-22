@@ -12,35 +12,9 @@
 </head>
 
 <body>
-    <header>
-        <img src="images/light/logo-with-text.svg" alt="Future Powered Solutions Logo"
-            class="light-mode-element nav-logo">
-        <img src="images/dark/logo-with-text.svg" alt="Future Powered Solutions Logo"
-            class="dark-mode-element nav-logo">
-        <nav>
-            <ul class="nav-list" id="nav-list">
-                <li><a class="nav-item" href="index.php">HOME</a></li>
-                <li><a class="nav-item" href="jobs.php">JOBS</a></li>
-                <li><a class="nav-item" href="apply.php">APPLY</a></li>
-                <li><a class="nav-item" href="about.php">ABOUT</a></li>
-                <li><a class="nav-item" href="enhancements.php">ENHANCEMENTS</a></li>
-                <li><a class="nav-item" href="mailto:104486332@student.swin.edu.au">EMAIL</a></li>
-                <a class="close-hamburger-menu" href="#">
-                    <img src="images/light/close.svg" alt="Close Menu Icon"
-                        class="light-mode-element hamburger-menu-icon">
-                    <img src="images/dark/close.svg" alt="Close Menu Icon"
-                        class="dark-mode-element hamburger-menu-icon">
-                </a>
-            </ul>
-            <a class="open-hamburger-menu" href="#nav-list">
-                <img src="images/light/hamburger-menu.svg" alt="Open Menu Icon"
-                    class="light-mode-element hamburger-menu-icon">
-                <img src="images/dark/hamburger-menu.svg" alt="Open Menu Icon"
-                    class="dark-mode-element hamburger-menu-icon">
-            </a>
-        </nav>
-    </header>
-
+    <?php
+        include("header.inc");
+    ?>
     <main class="form-and-title-container">
         <h1 class="apply-title">Interested in our company?</h1>
         <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" id="jobApplicationForm"
@@ -170,26 +144,9 @@
             </button>
         </form>
     </main>
-
-    <footer>
-        <a href="https://maps.google.com?q=A35+Bach+Dang+Street,+Tan+Binh+District,+Ho+Chi+Minh+City,+Viet+Nam"
-            target="_blank" class="contact-item">
-            <img src="images/light/address.svg" alt="Address Icon" class="contact-icon light-mode-element">
-            <img src="images/dark/address.svg" alt="Address Icon" class="contact-icon dark-mode-element">
-            <p>A35 Bach Dang Street, Tan Binh District, Ho Chi Minh City, Viet Nam.</p>
-        </a>
-        <a href="tel:+84387148555" class="contact-item">
-            <img src="images/light/phone.svg" alt="Phone Icon" class="contact-icon light-mode-element">
-            <img src="images/dark/phone.svg" alt="Phone Icon" class="contact-icon dark-mode-element">
-            <p>+84387148555</p>
-        </a>
-        <a href="mailto:104486332@student.swin.edu.au" class="contact-item">
-            <img src="images/light/email.svg" alt="Email Icon" class="contact-icon light-mode-element">
-            <img src="images/dark/email.svg" alt="Email Icon" class="contact-icon dark-mode-element">
-            <p>104486332@student.swin.edu.au</p>
-        </a>
-        <p>© 2024 Future Powered Solutions</p>
-    </footer>
+    <?php
+        include("footer.inc");
+    ?>
 </body>
 
 </html>
