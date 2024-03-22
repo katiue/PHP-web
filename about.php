@@ -17,11 +17,11 @@
         <img src="images/dark/logo-with-text.svg" alt="Future Powered Solutions Logo" class="dark-mode-element nav-logo">
         <nav>
             <ul class="nav-list" id="nav-list">
-                <li><a class="nav-item" href="index.html">HOME</a></li>
-                <li><a class="nav-item" href="jobs.html">JOBS</a></li>
-                <li><a class="nav-item" href="apply.html">APPLY</a></li>
-                <li><a class="nav-item" href="about.html">ABOUT</a></li>
-                <li><a class="nav-item" href="enhancements.html">ENHANCEMENTS</a></li>
+                <li><a class="nav-item" href="index.php">HOME</a></li>
+                <li><a class="nav-item" href="jobs.php">JOBS</a></li>
+                <li><a class="nav-item" href="apply.php">APPLY</a></li>
+                <li><a class="nav-item" href="about.php">ABOUT</a></li>
+                <li><a class="nav-item" href="enhancements.php">ENHANCEMENTS</a></li>
                 <li><a class="nav-item" href="mailto:104486332@student.swin.edu.au">EMAIL</a></li>
                 <a class="close-hamburger-menu" href="#">
                     <img src="images/light/close.svg" alt="Close Menu Icon" class="light-mode-element hamburger-menu-icon">
