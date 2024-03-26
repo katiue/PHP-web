@@ -591,6 +591,45 @@ textarea:focus {
     outline: none;
 }
 
+.popup-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: space-between;
+    align-items: flex-start;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    border: 1px solid #888;
+    padding: 20px;
+    z-index: 9999;
+    width: 30vw;
+    height: 20vh;
+    overflow: auto;
+}
+
+.popup-container:target{
+    display: none;
+}
+
+/* Close button */
+.popup-close {
+    position: sticky;
+    color: #aaa;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: blue;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    align-self: self-end;
+}
+
+.notifications{
+    margin-top: 0vh;
+}
+
 .input-field {
     position: relative;
     font-size: 1rem;

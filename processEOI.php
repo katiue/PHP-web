@@ -14,46 +14,49 @@
         $data = trim($data);
         $data = stripcslashes($data);
         $data = htmlspecialchars($data);
-        if ($data == "")
-            {
-                header('Location: apply.php');
-            }
-        else
-            return $data;
+        return $data;
     }
+    $error_msg = array();
+    $go_back = false;
+    foreach ($_POST as $key => $value) {
+        if (sanitise_input($_POST[$key]) == "") {
+            if($key=="other-skills"){
+                if (isset($_POST['skills4'])){                
+                    array_push($error_msg, "Please tel me $key");
+                    $go_back = true;
+                }
+            }
+            else
+            {
+                array_push($error_msg, "Please tell me $key");
+                $go_back = true;
+            }
+        }
+    }
+    if(!isset($_POST['gender']))
+    {
+        array_push($error_msg, "Please tell me your gender");
+        $go_back = true;
+    }
+    $current_time = new DateTime();
 
-    if (isset($_POST['jobReference']))
-        $jobReference = sanitise_input($_POST['jobReference']);
-    if (isset($_POST['firstName']))
-        $jobReference = sanitise_input($_POST['firstName']);
-    if (isset($_POST['lastName']))
-        $jobReference = sanitise_input($_POST['lastName']);
-    if (isset($_POST['dob']))
-        $jobReference = sanitise_input($_POST['dob']);
-    if (isset($_POST['gender']))
-        $jobReference = sanitise_input($_POST['gender']);
-    if (isset($_POST['streetAddress']))
-        $jobReference = sanitise_input($_POST['streetAddress']);
-    if (isset($_POST['suburb']))
-        $jobReference = sanitise_input($_POST['suburb']);
-    if (isset($_POST['state']))
-        $jobReference = sanitise_input($_POST['state']);
-    if (isset($_POST['postcode']))
-        $jobReference = sanitise_input($_POST['postcode']);
-    if (isset($_POST['email']))
-        $jobReference = sanitise_input($_POST['email']);
-    if (isset($_POST['phone']))
-        $jobReference = sanitise_input($_POST['phone']);
-    if (isset($_POST['skills1']))
-        $jobReference = sanitise_input($_POST['skills1']);
-    if (isset($_POST['skills2']))
-        $jobReference = sanitise_input($_POST['skills2']);
-    if (isset($_POST['skills3']))
-        $jobReference = sanitise_input($_POST['skills3']);
-    if (isset($_POST['skills4']))
-        $jobReference = sanitise_input($_POST['skills4']);
-    if (isset($_POST['other-skills']))
-        $jobReference = sanitise_input($_POST['other-skills']);
+    // Input date (e.g., '2023-01-01 12:00:00')
+    $input_date = new DateTime($_POST['dob']);
+
+    // Calculate the difference (current time - input date)
+    $time_difference = $current_time->diff($input_date);
+
+    // Display the difference
+    $age = $time_difference->y;
+    $age = intval($age);
+    if($age<15 || $age>80)
+        $go_back=true;
+    if ($go_back) {
+        session_start();
+        $_SESSION['postData'] = $_POST;
+        array_push($_SESSION['postData'],$error_msg);
+        header('Location: apply.php');
+    }
     $entropy = random_bytes(1); // Adjust the byte length as needed
     $id = uniqid(bin2hex($entropy));
     ?>
