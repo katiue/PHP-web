@@ -14,6 +14,7 @@
 <body>
     <?php
     include("header.inc");
+    require_once("settings.php");
     session_start();
     if (isset($_SESSION['postData'])) {
         $postData = $_SESSION['postData']; // Retrieve POST data from session
@@ -39,27 +40,27 @@
     ?>
     <main class="form-and-title-container">
         <h1 class="apply-title">Interested in our company?</h1>
-        <form action="processEOI.php" method="post" id="jobApplicationForm" novalidate=”novalidate”>
+        <form action="processEOI.php" method="post" id="jobApplicationForm" novalidate="novalidate">
             <h2>Job Application Form</h2>
             <!-- Job Information -->
             <div class="input-field">
-                <input type="text" id="jobReference" name="Job reference number" value="<?php echo isset($postData['jobReference']) ? htmlspecialchars(stripcslashes(trim($postData['jobReference']))) : ''; ?>" pattern="[A-Za-z0-9]{5}" required placeholder=" ">
+                <input type="text" id="job_reference_number" name="job_reference_number" value="<?php echo isset($postData['job_reference_number']) ? htmlspecialchars(stripcslashes(trim($postData['job_reference_number']))) : ''; ?>" pattern="[A-Za-z0-9]{5}" required placeholder=" ">
                 <span>Job reference number</span>
             </div>
 
             <!-- Applicant Information -->
             <div class="name">
                 <div class="input-field">
-                    <input type="text" id="firstName" name="firstName" value="<?php echo isset($postData['firstName']) ? htmlspecialchars(stripcslashes(trim($postData['firstName']))) : ''; ?>" pattern="[a-zA-Z]{0,20}" required placeholder=" ">
+                    <input type="text" id="first_name" name="first_name" value="<?php echo isset($postData['first_name']) ? htmlspecialchars(stripcslashes(trim($postData['first_name']))) : ''; ?>" pattern="[a-zA-Z]{0,20}" required placeholder=" ">
                     <span>First name</span>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="lastName" name="lastName" value="<?php echo isset($postData['lastName']) ? htmlspecialchars(stripcslashes(trim($postData['lastName']))) : ''; ?>" pattern="[a-zA-Z]{0,20}" required placeholder=" ">
+                    <input type="text" id="last_name" name="last_name" value="<?php echo isset($postData['last_name']) ? htmlspecialchars(stripcslashes(trim($postData['last_name']))) : ''; ?>" pattern="[a-zA-Z]{0,20}" required placeholder=" ">
                     <span>Last name</span>
                 </div>
             </div>
             <div class="input-field">
-                <input type="date" id="dob" name="dob" value="<?php echo isset($postData['dob']) ? htmlspecialchars(stripcslashes(trim($postData['dob']))) : ''; ?>" required placeholder=" ">
+                <input type="date" id="date_of_birth" name="date_of_birth" value="<?php echo isset($postData['date_of_birth']) ? htmlspecialchars(stripcslashes(trim($postData['date_of_birth']))) : ''; ?>" required placeholder=" ">
                 <span>Date of birth (dd/mm/yyyy)</span>
             </div>
             <fieldset>
@@ -76,13 +77,13 @@
 
             <!-- Address Information -->
             <div class="input-field">
-                <input type="text" id="streetAddress" name="streetAddress" value="<?php echo isset($postData['streetAddress']) ? htmlspecialchars(stripcslashes(trim($postData['streetAddress']))) : ''; ?>" maxlength="40" required placeholder=" ">
+                <input type="text" id="street_address" name="street_address" value="<?php echo isset($postData['street_address']) ? htmlspecialchars(stripcslashes(trim($postData['street_address']))) : ''; ?>" maxlength="40" required placeholder=" ">
                 <span>Street address</span>
             </div>
 
             <div class="input-field">
                 <input type="text" id="suburb" name="suburb" value="<?php echo isset($postData['suburb']) ? htmlspecialchars(stripcslashes(trim($postData['suburb']))) : ''; ?>" maxlength="40" required placeholder=" ">
-                <span>Subrub/Town</span>
+                <span>Suburb/Town</span>
             </div>
 
             <fieldset class="state-container">
@@ -149,7 +150,7 @@
                         <img src="images/dark/other-skills.svg" alt="Other Skills Icon" class="dark-mode-element">
                         <h4>Other</h4>
                     </label>
-                    <textarea id="other-textarea" name="other-skills" value="<?php echo isset($postData['other-skills']) ? htmlspecialchars(stripcslashes(trim($postData['other-skills']))) : ''; ?>" placeholder="Other skills"></textarea>
+                    <textarea id="other-textarea" name="other_skills" value="<?php echo isset($postData['other_skills']) ? htmlspecialchars(stripcslashes(trim($postData['other_skills']))) : ''; ?>" placeholder="Other skills"></textarea>
                 </li>
             </ul>
 

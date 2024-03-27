@@ -14,6 +14,7 @@
 <body>
     <?php
         include("header.inc");
+        session_start();
     ?>
     <main>
         <section class="index-hero-section">
