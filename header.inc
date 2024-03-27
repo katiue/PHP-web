@@ -12,8 +12,12 @@
                 <li><a class="nav-item" href="apply.php">APPLY</a></li>
                 <li><a class="nav-item" href="about.php">ABOUT</a></li>
                 <li><a class="nav-item" href="enhancements.php">ENHANCEMENTS</a></li>
-                <li><a class="nav-item" href="mailto:104486332@student.swin.edu.au">EMAIL</a></li>
-                <a class="close-hamburger-menu" href="#">
+                <li><a class="nav-item" href="mailto:104486332@student.swin.edu.au">EMAIL</a></li>';
+                if(isset($_SESSION['user_id'])){
+                    echo '<li><a class="nav-item" href="processEOI.PHP">'; echo $_SESSION['user_id']; echo '</a></li>';}
+                else
+                    echo '<li><a class="nav-item" href="login.PHP">Log in</a></li>';
+                echo'<a class="close-hamburger-menu" href="#">
                     <img src="images/light/close.svg" alt="Close Menu Icon"
                         class="light-mode-element hamburger-menu-icon">
                     <img src="images/dark/close.svg" alt="Close Menu Icon"

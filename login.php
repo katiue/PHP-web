@@ -17,10 +17,14 @@
     ?>
     <div id="box">
         <form method="post">
-            <div style="font-size: 20px;margin: 10px;color: white;">Login</div>
-
-            <input id="text" type="text" name="user_name"><br><br>
-            <input id="text" type="password" name="password"><br><br>
+            <div class="input-field">
+                <input type="text" id="user_name" name="user_name" required placeholder=" ">
+                <span>Email or phone number</span>
+            </div>
+            <div class="input-field">
+                <input type="text" id="password" name="password" required placeholder=" ">
+                <span>Password</span>
+            </div>
 
             <?php
 
@@ -60,7 +64,7 @@
             } ?>
             <input id="button" type="submit" value="Login"><br><br>
 
-            <a href="signup.php">Click to Signup</a><br><br>
+            <a href="apply.php">Click to Signup</a><br><br>
         </form>
         <?php
         include("footer.inc");
