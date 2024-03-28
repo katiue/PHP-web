@@ -13,12 +13,49 @@
 
 <body>
     <?php
+    include("header.inc");
+    include("settings.php");
     function sanitise_input($data)
     {
         $data = trim($data);
         $data = stripcslashes($data);
         $data = htmlspecialchars($data);
         return $data;
+    }
+    $checkTableSQL="SHOW TABLES LIKE 'EOI'";
+    $result=mysqli_query($conn,$checkTableSQL);
+    if(!$result||$result->num_rows==0)
+    {
+        $createTableSQL="
+            CREATE TABLE EOI(
+                user_id VARCHAR(255),
+                EOInumber INT AUTO_INCREMENT PRIMARY KEY,
+                job_reference VARCHAR(5),
+                first_name VARCHAR(20),
+                last_name VARCHAR(20),
+                dob DATE,
+                gender ENUM('Male', 'Female', 'Other'),
+                street_address VARCHAR(40),
+                suburb_town VARCHAR(40),
+                state ENUM('VIC', 'NSW', 'QLD', 'NT', 'WA', 'SA', 'TAS', 'ACT'),
+                postcode CHAR(4),
+                email VARCHAR(255),
+                phone VARCHAR(20),
+                skill1 VARCHAR(255),
+                skill2 VARCHAR(255),
+                skill3 VARCHAR(255),
+                skill4 VARCHAR(255),
+                other_skills TEXT,
+                FOREIGN KEY (user_id) REFERENCES users_db (user_id) ON DELETE CASCADE
+            );";
+        if(!mysqli_query($conn ,  $createTableSQL)){
+            $checkTableSQL="SHOW TABLES LIKE 'EOI'";
+            $result=mysqli_query($conn,$checkTableSQL);
+            if(!$result||$result->num_rows==0){
+                mysqli_close($conn);
+                throw new Exception('Table creation error: ' . mysqli_connect_error());
+            }
+        }
     }
     $error_msg = array();
     $go_back = false;
@@ -112,7 +149,7 @@
         session_start();
         $_SESSION['postData'] = $_POST;
         array_push($_SESSION['postData'], $error_msg);
-        header('Location: apply.php');
+        header('Location: apply.php#popup-container');
     }
     ?>
 </body>

@@ -32,7 +32,7 @@
             echo '<p class="notifications">' . $value . '</p>';
         echo '
                 </div>
-                <a class="popup-close" href="#popup-container">Ok</a>
+                <a class="popup-close" href="#">Ok</a>
                 </div>
                 ';
     }

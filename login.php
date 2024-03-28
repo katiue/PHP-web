@@ -38,26 +38,12 @@
             require_once("settings.php");
 
             $attributes=[
-                "EOInumber",
-                "Job_reference_number",
-                "First_name",
-                "Last_name",
-                "dob",
-                "gender",
-                "street_address",
-                "suburb_town",
-                "state",
-                "postcode",
+                "user_id",
+                "first_name",
+                "last_name",
                 "email",
                 "phone",
-                "skill1",
-                "skill2",
-                "skill3",
-                "skill4",
-                "other_skill",
-                "Status",
-                "role",
-                "pwd"];
+                "role"];
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 //something was posted
                 $user_name = $_POST['username'];
@@ -66,14 +52,15 @@
                 if (!empty($user_name) && !empty($password)) {
 
                     //read from database
-                    $query = "select * from EOI where email = '$user_name' or phone = '$user_name' limit 1";
+                    $query = "select * from users_db where email = '$user_name' or phone = '$user_name' limit 1";
                     $result = mysqli_query($conn, $query);
                         if ($result && mysqli_num_rows($result) > 0) {
 
                             $user_data = mysqli_fetch_assoc($result);
 
                             if (password_verify($password, $user_data['pwd'])) {
-                                $_SESSION['user_id'] = $user_data['EOInumber'];
+                                foreach($attributes as $key)
+                                    $_SESSION[$key] = $user_data[$key];
                                 header("Location: index.php");
                                 die;
                             }
