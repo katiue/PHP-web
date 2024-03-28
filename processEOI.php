@@ -22,11 +22,10 @@
         $data = htmlspecialchars($data);
         return $data;
     }
-    $checkTableSQL="SHOW TABLES LIKE 'EOI'";
-    $result=mysqli_query($conn,$checkTableSQL);
-    if(!$result||$result->num_rows==0)
-    {
-        $createTableSQL="
+    $checkTableSQL = "SHOW TABLES LIKE 'EOI'";
+    $result = mysqli_query($conn, $checkTableSQL);
+    if (!$result || $result->num_rows == 0) {
+        $createTableSQL = "
             CREATE TABLE EOI(
                 user_id VARCHAR(255),
                 EOInumber INT AUTO_INCREMENT PRIMARY KEY,
@@ -36,7 +35,7 @@
                 dob DATE,
                 gender ENUM('Male', 'Female', 'Other'),
                 street_address VARCHAR(40),
-                suburb_town VARCHAR(40),
+                suburb VARCHAR(40),
                 state ENUM('VIC', 'NSW', 'QLD', 'NT', 'WA', 'SA', 'TAS', 'ACT'),
                 postcode CHAR(4),
                 email VARCHAR(255),
@@ -48,10 +47,10 @@
                 other_skills TEXT,
                 FOREIGN KEY (user_id) REFERENCES users_db (user_id) ON DELETE CASCADE
             );";
-        if(!mysqli_query($conn ,  $createTableSQL)){
-            $checkTableSQL="SHOW TABLES LIKE 'EOI'";
-            $result=mysqli_query($conn,$checkTableSQL);
-            if(!$result||$result->num_rows==0){
+        if (!mysqli_query($conn,  $createTableSQL)) {
+            $checkTableSQL = "SHOW TABLES LIKE 'EOI'";
+            $result = mysqli_query($conn, $checkTableSQL);
+            if (!$result || $result->num_rows == 0) {
                 mysqli_close($conn);
                 throw new Exception('Table creation error: ' . mysqli_connect_error());
             }
@@ -150,6 +149,77 @@
         $_SESSION['postData'] = $_POST;
         array_push($_SESSION['postData'], $error_msg);
         header('Location: apply.php#popup-container');
+    }
+    $application = "INSERT INTO EOI(
+        user_id,
+        job_reference,
+        first_name,
+        last_name,
+        dob,
+        gender,
+        street_address,
+        suburb,
+        state,
+        postcode,
+        email,
+        phone,
+        other_skills
+    )
+    VALUES(
+        '{$_SESSION['user_id']}',
+        '{$_POST['job_reference_number']}',
+        '{$_POST['first_name']}',
+        '{$_POST['last_name']}',
+        '{$_POST['date_of_birth']}',
+        '{$_POST['gender']}',
+        '{$_POST['street_address']}',
+        '{$_POST['suburb']}',
+        '{$_POST['state']}',
+        '{$_POST['postcode']}',
+        '{$_POST['email']}',
+        '{$_POST['phone']}',
+        '{$_POST['other_skills']}'
+    );";
+    $result = mysqli_query($conn, $application);
+    if (isset($_POST['skills1']))
+    {
+        $application = "UPDATE EOI
+        SET skill1 = '{$_POST['skills1']}'
+        WHERE EOInumber = (
+            SELECT t.EOInumber
+            FROM (SELECT MAX(EOInumber) as EOInumber FROM EOI) AS t /*t is the representation of the value*/
+        );";
+        $result = mysqli_query($conn, $application);
+    }
+    if (isset($_POST['skills2']))
+    {
+        $application = "UPDATE EOI
+        SET skill2 = '{$_POST['skills2']}'
+        WHERE EOInumber = (
+            SELECT t.EOInumber
+            FROM (SELECT MAX(EOInumber) as EOInumber FROM EOI) AS t
+        );";
+        $result = mysqli_query($conn, $application);
+    }
+    if (isset($_POST['skills3']))
+    {
+        $application = "UPDATE EOI
+        SET skill3 = '{$_POST['skills3']}'
+        WHERE EOInumber = (
+            SELECT t.EOInumber
+            FROM (SELECT MAX(EOInumber) as EOInumber FROM EOI) AS t
+        );";
+        $result = mysqli_query($conn, $application);
+    }
+    if (isset($_POST['skills4']))
+    {
+        $application = "UPDATE EOI
+        SET skill4 = '{$_POST['skills4']}'
+        WHERE EOInumber = (
+            SELECT t.EOInumber
+            FROM (SELECT MAX(EOInumber) as EOInumber FROM EOI) AS t
+        );";
+        $result = mysqli_query($conn, $application);
     }
     ?>
 </body>

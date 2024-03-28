@@ -7,7 +7,8 @@ if(isset($_POST['list_all'])) {
     $sql = "SELECT * FROM EOI";
     $result = mysqli_query($conn, $sql);
     $user_data = mysqli_fetch_assoc($result);
-    echo $user_data['dob'];
+    if(isset($user_data['dob']))
+        echo $user_data['dob'];
     // Display the results
     // You can format the results as HTML table or any other format
 }
