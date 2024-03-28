@@ -17,7 +17,7 @@ echo '
     echo '<li><a class="nav-item" href="enhancements.php">ENHANCEMENTS</a></li>
                 <li><a class="nav-item" href="mailto:104486332@student.swin.edu.au">EMAIL</a></li>';
     if (isset($_SESSION['user_id'])) {
-        echo '<li><a class="nav-item" href="processEOI.PHP"> Hello, ';
+        echo '<li><a class="nav-item" href="logout.php"> Hello, ';
         echo $_SESSION['last_name'];
         echo '</a></li>';
     } else
