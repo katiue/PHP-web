@@ -114,8 +114,6 @@
         array_push($_SESSION['postData'], $error_msg);
         header('Location: apply.php');
     }
-    $entropy = random_bytes(1); // Adjust the byte length as needed
-    $id = uniqid(bin2hex($entropy));
     ?>
 </body>
 

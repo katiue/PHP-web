@@ -15,7 +15,6 @@
     <?php
     include("header.inc");
     require_once("settings.php");
-    session_start();
     if (isset($_SESSION['postData'])) {
         $postData = $_SESSION['postData']; // Retrieve POST data from session
         // Use $postData as needed

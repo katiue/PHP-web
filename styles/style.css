@@ -7,6 +7,7 @@
     --highlight-color: #fcba28;
     --secondary-background-color: #fcf7ef;
     --main-background-color: #fff;
+    --third-background-color:#ecedf3f1;
 }
 
 /* Global styles */
@@ -1127,6 +1128,96 @@ fieldset {
     margin-top: 1rem;
     margin-bottom: 2rem;
 }
+/*login page*/
+.background_login{
+    background-image: url(images/slave_contract.png);
+    background-size:cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background_login h2{
+    color: var(--primary-color);
+    font-size: 48px;
+    font-weight: 700;
+}
+/*register page*/
+.bg-register{
+    background-image: url(images/slave_contract.png) ;
+    background-size:cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bg-register h2{
+    color: var(--primary-color);
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.register-container {
+    position: relative;
+    background-color: var(--third-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10vh auto;
+    padding: 20px;
+    width: 330px;
+}
+
+.register-container h2 {
+    text-align: center;
+}
+
+.register-container img{
+    position: relative;
+    height: 4rem;
+    width: auto;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"] {
+    width: 100%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: var(--secondary-background-color);
+    /* border: 1px solid #ccc; */
+}
+
+.register-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.form-register
+{
+    min-width: 0;
+    width: 100%;
+}
+
+.register-container h5{
+    margin: 0;
+}
+
+.register-login{
+    color: var(--primary-color);
+}
+.register-container span{
+    bottom: 50px;
+}
 
 /* Media query for mobile support */
 @media only screen and (max-width: 768px) {
@@ -1500,6 +1591,17 @@ fieldset {
     .hamburger-demo img {
         width: 45%;
     }
+
+    .register-container img{
+        top: 0;
+        margin-top: 5vh;
+        position: absolute;
+        height: 4rem;
+        width: auto;
+    }
+    .register-container h2{
+        margin-top: 8vh;
+    }
 }
 
 /* Media query for dark mode */
@@ -1513,6 +1615,7 @@ fieldset {
         --highlight-color: #d1c05c;
         --secondary-background-color: #232323;
         --main-background-color: #191919;
+        --third-background-color:#8690a305;
     }
 
     /* Global styles */
@@ -1634,4 +1737,5 @@ fieldset {
     .hamburger-demo img {
         box-shadow: 0 0 3rem #353535;
     }
+    
 }
