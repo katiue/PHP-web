@@ -1260,10 +1260,12 @@ fieldset {
 }
 
 .EOI-displayer{
+    font-size: 1.5em;
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
+    overflow: auto;
 }
 
 .EOI-displayer th{
@@ -1736,6 +1738,32 @@ fieldset {
         top:0;
         margin-top: 9.5vh;
         width: 100%;
+    }
+    .manage-options{
+        flex-direction: column;
+        width: 100%;
+    }
+    .manage-form{
+        height: 30vh;
+        width: 100%;
+    }
+    .manage-form .button{
+        width: 100%;
+        position: relative;
+    }
+    .EOI-displayer th,td{
+        padding-right: 2vh;
+    }
+    .EOI-displayer{
+        display: flex;
+        padding: 0;
+        margin-left: 0;
+        align-self: flex-end;
+        width: fit-content;
+        font-size: 1em;
+    }
+    .form_reveal_button{
+        width: 12vw;
     }
 }
 

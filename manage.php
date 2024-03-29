@@ -79,11 +79,11 @@ if(isset($_POST['delete_by_reference'])) {
         <form method="post" class="manage-form">
             <h2>List by applicant's name</h2>
             <div class="input-field">
-                <input type="text" id="first_name" name="first_name" pattern="[\p{L}\p{Mn}\p{Pd}'\s]{1,20}" required placeholder=" ">
+                <input type="text" id="first_name" name="first_name" pattern="[\p{L}\p{Mn}\p{Pd}'\s]{1,20}" placeholder=" ">
                 <span>First name</span>
             </div>
-            <div class="input-field" class="manage-form">
-                <input type="text" id="last_name" name="last_name" pattern="[\p{L}\p{Mn}\p{Pd}'\s]{1,20}" required placeholder=" ">
+            <div class="input-field">
+                <input type="text" id="last_name" name="last_name" pattern="[\p{L}\p{Mn}\p{Pd}'\s]{1,20}" placeholder=" ">
                 <span>Last name</span>
             </div>
             <input type="submit" name="list_by_applicant" value="List" class="button">
