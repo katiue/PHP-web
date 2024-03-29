@@ -177,6 +177,7 @@
         </form>
     </section>';
     }
+    include("footer.inc");
     ?>
 </body>
 

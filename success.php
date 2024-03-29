@@ -88,6 +88,17 @@
         }
         else
             header("Location:apply.php");
+        echo '
+        <form action="index.php" method="get" class="success-button">        
+            <button type="submit" value="Return to homepage" class="button submit-button">
+                <span>Return to homepage
+                    <img src="images/light/right-arrow.svg" alt="Right Arrow Icon" class="arrow-icon light-mode-element">
+                    <img src="images/dark/right-arrow.svg" alt="Right Arrow Icon" class="arrow-icon dark-mode-element">
+                </span>
+            </button>
+        </form>
+        ';
+    include("footer.inc");
     ?>
 </body>
 </html>
