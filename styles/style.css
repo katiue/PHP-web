@@ -1218,12 +1218,31 @@ fieldset {
 .register-container span{
     bottom: 50px;
 }
+/*success page*/
 .success-button{
     position: relative;
     width: auto;
     align-items: center;
     justify-content: center;
     margin-bottom: 15vh;
+}
+/*manage page*/
+.manage-options{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.manage-form{
+    width: 20vw;
+    min-width: 0rem;
+    height: 40vh;
+}
+.manage-form h2{
+    font-size: 1.2em;
+}
+.manage-form .button{
+    position: absolute;
+    bottom: 0;
 }
 /* Media query for mobile support */
 @media only screen and (max-width: 768px) {

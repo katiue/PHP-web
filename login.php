@@ -21,12 +21,12 @@
     <div class="register-container">
         <img src="images/light/logo-with-text.svg" alt="Future Powered Solutions Logo" class="light-mode-element nav-logo">
         <img src="images/dark/logo-with-text.svg" alt="Future Powered Solutions Logo" class="dark-mode-element nav-logo">
-        <h2>Sign up</h2>
+        <h2>Login</h2>
         <!-- <div class="form-login"> -->
         <form class="form-register" method="post">
             <div class="input-field">
                 <input type="text" name="username" placeholder="" required>
-                <span>Username</span>
+                <span>E-mail or phone number</span>
             </div>
             <div class="input-field">
                 <input type="password" name="password" placeholder="" required>

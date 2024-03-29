@@ -51,11 +51,11 @@
             <!-- Applicant Information -->
             <div class="name">
                 <div class="input-field">
-                    <input type="text" id="first_name" name="first_name" value="<?php echo isset($postData['first_name']) ? htmlspecialchars(stripcslashes(trim($postData['first_name']))) : ''; ?>" pattern="[a-zA-Z]{0,20}" required placeholder=" ">
+                    <input type="text" id="first_name" name="first_name" value="<?php echo isset($postData['first_name']) ? htmlspecialchars(stripcslashes(trim($postData['first_name']))) : ''; ?>" pattern="[\p{L}\p{Mn}\p{Pd}'\s]{1,20}" required placeholder=" ">
                     <span>First name</span>
                 </div>
                 <div class="input-field">
-                    <input type="text" id="last_name" name="last_name" value="<?php echo isset($postData['last_name']) ? htmlspecialchars(stripcslashes(trim($postData['last_name']))) : ''; ?>" pattern="[a-zA-Z]{0,20}" required placeholder=" ">
+                    <input type="text" id="last_name" name="last_name" value="<?php echo isset($postData['last_name']) ? htmlspecialchars(stripcslashes(trim($postData['last_name']))) : ''; ?>" pattern="[\p{L}\p{Mn}\p{Pd}'\s]{1,20}" required placeholder=" ">
                     <span>Last name</span>
                 </div>
             </div>
