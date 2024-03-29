@@ -54,7 +54,7 @@
                     //read from database
                     $query = "select * from users_db where email = '$user_name' or phone = '$user_name' limit 1";
                     $result = mysqli_query($conn, $query);
-                        if ($result && mysqli_num_rows($result) > 0) {
+                        if ($result) {
 
                             $user_data = mysqli_fetch_assoc($result);
 

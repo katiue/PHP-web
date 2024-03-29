@@ -993,7 +993,7 @@ fieldset {
 }
 
 .time-table-row:nth-child(even) {
-    background: whitesmoke;
+    background: red;
 }
 
 .time-table-heading {
@@ -1233,9 +1233,12 @@ fieldset {
     justify-content: space-around;
 }
 .manage-form{
+    position: relative;
     width: 20vw;
     min-width: 0rem;
     height: 40vh;
+    background-color: var(--third-background-color);
+    padding: 10px;
 }
 .manage-form h2{
     font-size: 1.2em;
@@ -1243,6 +1246,108 @@ fieldset {
 .manage-form .button{
     position: absolute;
     bottom: 0;
+    margin-bottom: 2vh;
+    height: 5vh;
+    width: 20vw;
+    font-size: 1.3em;
+}
+.manage-table{
+    background-color: var(--third-background-color);
+    border-radius: 5px;
+    margin: 5vh 2vh ;
+    padding: 5px;
+    border: 1px solid whitesmoke;
+}
+
+.EOI-displayer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.EOI-displayer th{
+    background-color: var(--secondary-background-color);
+}
+
+.EOI-displayer th,td{
+    padding-right: 5vh;
+}
+
+.manage-view{
+    padding: 0;
+    width: 15%;
+    min-width: 0rem;
+}
+.form_reveal_button{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 15vh;
+    background-color: transparent;
+    font-size: 1.2rem;
+    color: var(--main-text-color);
+}
+/*process page*/
+.process_table{
+    background-color: var(--third-background-color);
+    margin: 2vh 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.process_table table{
+    border-radius: 10px;
+    border: 3px solid lightgray;
+    background-color: var(--main-background-color);
+    width: auto;
+    height: auto;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 2vh 5vw;
+    font-weight: bold;
+}
+
+.process_table td{
+    border: 3px solid lightgray;
+    padding: 0.6rem;
+}
+.process_button{
+    position: relative;
+    margin: 2vh 0vw;
+    height: 6vh;
+    font-size: large;
+    bottom: 0;
+}
+/*display page*/
+
+
+.status-selection {
+    position: relative;
+    height: 2rem;
+    padding: 0;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+}
+.status-selection select{
+    background-color: transparent;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    appearance: none;
+    color: var(--main-text-color);
+}
+.manage-down-arrow {
+    position: absolute;
+    display: block;
+    padding-top: 1vh;
+    top: 0;
+    right: 0;
+    pointer-events: none;
 }
 /* Media query for mobile support */
 @media only screen and (max-width: 768px) {
@@ -1767,5 +1872,8 @@ fieldset {
     .hamburger-demo img {
         box-shadow: 0 0 3rem #353535;
     }
-    
+    .status-selection select{
+        color: var(--main-text-color);
+        background-color: var(--main-background-color);
+    }
 }

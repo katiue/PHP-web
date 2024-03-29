@@ -3,6 +3,12 @@
 include_once "settings.php";
 
 // Check if the form is submitted for listing all EOIs
+if(isset($_POST['UPDATE'])){
+    $update_value=$_POST['status'];
+    $update_application=$_POST['EOI'];
+    $sql= "UPDATE EOI SET status = '$update_value' WHERE EOInumber = $update_application";
+    $result = mysqli_query($conn, $sql);
+}
 if(isset($_POST['list_all'])) {
     $sql = "SELECT * FROM EOI";
     $result = mysqli_query($conn, $sql);
@@ -35,14 +41,6 @@ if(isset($_POST['delete_by_reference'])) {
     // Display success or failure message
 }
 
-// Check if the form is submitted for changing the status of an EOI
-/*if(isset($_POST['change_status'])) {
-    $EOI_id = $_POST['EOI_id'];
-    $new_status = $_POST['new_status'];
-    $sql = "UPDATE EOI SET status = '$new_status' WHERE EOI_id = '$EOI_id'";
-    $result = mysqli_query($conn, $sql);
-    // Display success or failure message
-}*/
 ?>
 
 <!DOCTYPE html>
@@ -101,13 +99,46 @@ if(isset($_POST['delete_by_reference'])) {
             <input type="submit" name="delete_by_reference" value="Delete EOIs" class="button">
         </form>
     </div>
+    <div class="EOI-displayer">
+        <?php
+            if(isset($result)&&!isset($_POST['UPDATE'])){
+                echo"
+                    <table class='manage-table'>
+                    <thead>
+                        <tr>
+                            <th>EOI number</th>
+                            <th>Job reference number</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Status</th>
+                            <th>Detail</th>
+                        </tr>
+                    </thead>";
+            }
+            if(isset($result)&&!isset($_POST['UPDATE'])){
+                while($application_data = mysqli_fetch_assoc($result)){
+                    
+                    echo"
+                        <tr class='time-table-row'>
+                            <td>" . $application_data['EOInumber'] . " </td>
+                            <td>" .$application_data['job_reference'] . "</td>
+                            <td>" .$application_data['first_name']. "</td>
+                            <td>" .$application_data['last_name']. "</td>
+                            <td>" .$application_data['status']. "</td>
+                            <td>
+                                <form action='display_detail.php' method='POST' class='manage-view'> 
+                                    <input type='submit' name=".$application_data['EOInumber']." value='view' id=".$application_data['EOInumber']." class='form_reveal_button'>
+                                </form>
+                            </td>
+                        </tr>";
+                    }
+                }
+            echo'
+            </table>
+            ';
+        ?>
+    </div>
     <?php
-        if($result)
-            $user_data = mysqli_fetch_assoc($result);
-        if(isset($user_data))
-        foreach($user_data as $key => $value){
-            echo "$key ---- $value";
-        }
         include("footer.inc");
     ?>
     <!-- Add more forms for other functionalities (list by reference, list by applicant, delete by reference, change status) -->

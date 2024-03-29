@@ -45,6 +45,7 @@
                 skill3 VARCHAR(255),
                 skill4 VARCHAR(255),
                 other_skills TEXT,
+                status ENUM('New','Current','Final'),
                 FOREIGN KEY (user_id) REFERENCES users_db (user_id) ON DELETE CASCADE
             );";
         if (!mysqli_query($conn,  $createTableSQL)) {
@@ -150,32 +151,37 @@
             array_push($_SESSION['postData'], $error_msg);
             header('Location: apply.php#popup-container');
         }
-        $sql = "SELECT MAX(EOInumber) FROM EOI";
+        $sql = "SELECT MAX(EOInumber) AS max_value FROM EOI";
         $result = mysqli_query($conn, $sql);
-        $rows = mysqli_num_rows($result);
+        if ($result) {
+            // Fetch the result as an associative array
+            $row = mysqli_fetch_assoc($result);
+        
+            // Get the maximum value from the result
+            $maxValue = $row['max_value'] + 1;
+        }
     }
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo '<section>
-        <h2 class="section-heading">Please verify your application</h2>
-        <table class="process_table">
-                <tr class=';
-        echo "'process_row'>";
-        echo "
+        echo"
+            <h2 class='section-heading'>Please verify your application</h2>
+            <div class='process_table'>
+                <table>
+                    <tr class='process_row'>
                         <td>EOI number</td>
-                        <td>$rows</td>
+                        <td>$maxValue</td>
                     </tr>";
-        foreach ($_POST as $key => $value) {
-            echo "<tr class='process_row'>
-                            <td>$key</td>
-                            <td>$value</td>
-                        </tr>";
-        }
-        echo '
-        </table>
-        <form action="success.php" method="get">
-            <input type="submit" value="submit form" class="button">
-        </form>
-    </section>';
+                foreach ($_POST as $key => $value) {
+                    echo "<tr class='process_row'>
+                                <td>$key</td>
+                                <td>$value</td>
+                            </tr>";
+                }
+                echo '
+                </table>
+                <form action="success.php" method="get">
+                    <input type="submit" value="submit form" class="button process_button">
+                </form>
+            </div>';
     }
     include("footer.inc");
     ?>

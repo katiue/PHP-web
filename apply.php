@@ -21,6 +21,7 @@
         $postData = $_SESSION['postData']; // Retrieve POST data from session
         // Use $postData as needed
         $error_msg = $postData[0];
+        unset($_SESSION['post_Data']);
     }
     ?>
     <?php

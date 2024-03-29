@@ -16,6 +16,7 @@
         if (isset($_SESSION['postData']))
         {
             $postData = $_SESSION['postData']; // Retrieve POST data from session
+            unset($_SESSION['postData']);
             $application = "INSERT INTO EOI(
                     user_id,
                     job_reference,
@@ -29,7 +30,8 @@
                     postcode,
                     email,
                     phone,
-                    other_skills
+                    other_skills,
+                    status
                 )
                 VALUES(
                     '{$_SESSION['user_id']}',
@@ -44,7 +46,8 @@
                     '{$postData['postcode']}',
                     '{$postData['email']}',
                     '{$postData['phone']}',
-                    '{$postData['other_skills']}'
+                    '{$postData['other_skills']}',
+                    'New'
                 );";
             $result = mysqli_query($conn, $application);
             //update 4 skills
