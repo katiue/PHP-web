@@ -13,7 +13,8 @@ echo '
                 <li><a class="nav-item" href="about.php">ABOUT</a></li>';
     session_start();
     if (isset($_SESSION['role']))
-        echo '<li><a class="nav-item" href="manage.php">MANAGE</a></li>';
+        if($_SESSION['role']=='admin')
+            echo '<li><a class="nav-item" href="manage.php">MANAGE</a></li>';
     echo '<li><a class="nav-item" href="enhancements.php">ENHANCEMENTS</a></li>
                 <li><a class="nav-item" href="mailto:104486332@student.swin.edu.au">EMAIL</a></li>';
     if (isset($_SESSION['user_id'])) {

@@ -15,11 +15,12 @@
     <?php
     include("header.inc");
     require_once("settings.php");
+    if(!isset($_SESSION['user_id']))
+        header("Location: login.php");
     if (isset($_SESSION['postData'])) {
         $postData = $_SESSION['postData']; // Retrieve POST data from session
         // Use $postData as needed
         $error_msg = $postData[0];
-        unset($_SESSION['postData']); // Unset session variable to clear data
     }
     ?>
     <?php

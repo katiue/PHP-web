@@ -71,7 +71,7 @@
                     echo "Please input email or phone number";
                 }
             } ?>
-            <input type="submit" value="Sign Up" class="button">
+            <input type="submit" value="Login" class="button">
             <h5>Don't have an account? <a href="register.php" class="register-login">Sign up here.</a></h5>
         </form>
         <!-- </div> -->

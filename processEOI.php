@@ -56,170 +56,126 @@
             }
         }
     }
-    $error_msg = array();
-    $go_back = false;
-    foreach ($_POST as $key => $value) {
-        $validating = sanitise_input($_POST[$key]);
-        if ($validating == "") {
-            if ($key == "other_skills") {
-                if (isset($_POST['skills4'])) {
-                    array_push($error_msg, "Please tel me other skills");
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $error_msg = array();
+        $go_back = false;
+        foreach ($_POST as $key => $value) {
+            $validating = sanitise_input($_POST[$key]);
+            if ($validating == "") {
+                if ($key == "other_skills") {
+                    if (isset($_POST['skills4'])) {
+                        array_push($error_msg, "Please tel me other skills");
+                        $go_back = true;
+                    }
+                } else {
+                    array_push($error_msg, "Please tell me $key");
                     $go_back = true;
                 }
             } else {
-                array_push($error_msg, "Please tell me $key");
-                $go_back = true;
-            }
-        } else {
-            switch ($key) {
+                switch ($key) {
 
-                case "job_reference_number":
-                    if (!preg_match("/^[a-zA-Z0-9]{5}$/", $validating)) {
-                        array_push($error_msg, "Job reference number must contain exactly 5 alphanumeric characters");
-                        $go_back = true;
-                    }
-                    break;
+                    case "job_reference_number":
+                        if (!preg_match("/^[a-zA-Z0-9]{5}$/", $validating)) {
+                            array_push($error_msg, "Job reference number must contain exactly 5 alphanumeric characters");
+                            $go_back = true;
+                        }
+                        break;
 
-                case "first_name":
-                    if (!preg_match("/^[\p{L}\p{M}\s]{1,20}$/u", $validating)) {
-                        array_push($error_msg, "First name must be within 20 alpha characters");
-                        $go_back = true;
-                    }
-                    break;
+                    case "first_name":
+                        if (!preg_match("/^[\p{L}\p{M}\s]{1,20}$/u", $validating)) {
+                            array_push($error_msg, "First name must be within 20 alpha characters");
+                            $go_back = true;
+                        }
+                        break;
 
-                case "last_name":
-                    if (!preg_match("/^[\p{L}\p{M}\s]{1,20}$/u", $validating)) {
-                        array_push($error_msg, "Last name must be within 20 alpha characters");
-                        $go_back = true;
-                    }
-                    break;
+                    case "last_name":
+                        if (!preg_match("/^[\p{L}\p{M}\s]{1,20}$/u", $validating)) {
+                            array_push($error_msg, "Last name must be within 20 alpha characters");
+                            $go_back = true;
+                        }
+                        break;
 
-                case "street_address":
-                    if (strlen($validating) > 40) {
-                        array_push($error_msg, "Street address must have less than 40 characters");
-                        $go_back = true;
-                    }
-                    break;
+                    case "street_address":
+                        if (strlen($validating) > 40) {
+                            array_push($error_msg, "Street address must have less than 40 characters");
+                            $go_back = true;
+                        }
+                        break;
 
-                case "suburb":
-                    if (strlen($validating) > 40) {
-                        array_push($error_msg, "Street address must have less than 40 characters");
-                        $go_back = true;
-                    }
-                    break;
+                    case "suburb":
+                        if (strlen($validating) > 40) {
+                            array_push($error_msg, "Street address must have less than 40 characters");
+                            $go_back = true;
+                        }
+                        break;
 
-                case "postcode":
-                    if (!preg_match("/^[0-9]{4}$/u", $validating)) {
-                        array_push($error_msg, "Postcode must have exactly 4 digits");
-                        $go_back = true;
-                    }
-                    break;
+                    case "postcode":
+                        if (!preg_match("/^[0-9]{4}$/u", $validating)) {
+                            array_push($error_msg, "Postcode must have exactly 4 digits");
+                            $go_back = true;
+                        }
+                        break;
 
-                case "email":
-                    if (!filter_var($validating, FILTER_VALIDATE_EMAIL)) {
-                        array_push($error_msg, "Invalid email");
-                        $go_back = true;
-                    }
-                    break;
+                    case "email":
+                        if (!filter_var($validating, FILTER_VALIDATE_EMAIL)) {
+                            array_push($error_msg, "Invalid email");
+                            $go_back = true;
+                        }
+                        break;
 
-                case "phone":
-                    if (!preg_match("/^[\d\s]{8,12}$/u", $validating)) {
-                        array_push($error_msg, "Phone must be from 8 to 12 numbers");
-                        $go_back = true;
-                    }
-                    break;
+                    case "phone":
+                        if (!preg_match("/^[\d\s]{8,12}$/u", $validating)) {
+                            array_push($error_msg, "Phone must be from 8 to 12 numbers");
+                            $go_back = true;
+                        }
+                        break;
+                }
             }
         }
+        if (!isset($_POST['gender'])) {
+            array_push($error_msg, "Please tell me your gender");
+            $go_back = true;
+        }
+        $input_date = new DateTime($_POST['date_of_birth']);
+        $current_time = date("Y");
+        $year = $input_date->format("Y");
+        // Display the difference
+        $age = $current_time - $year;
+        if ($age < 15 || $age > 80) {
+            array_push($error_msg, "Age must be from 15 to 80 years old");
+            $go_back = true;
+        }
+        $_SESSION['postData'] = $_POST;//storing data for other pages
+        if ($go_back) {
+            array_push($_SESSION['postData'], $error_msg);
+            header('Location: apply.php#popup-container');
+        }
+        $sql = "SELECT MAX(EOInumber) FROM EOI";
+        $result = mysqli_query($conn, $sql);
+        $rows = mysqli_num_rows($result);
     }
-    if (!isset($_POST['gender'])) {
-        array_push($error_msg, "Please tell me your gender");
-        $go_back = true;
-    }
-    $input_date = new DateTime($_POST['date_of_birth']);
-    $current_time = date("Y");
-    $year = $input_date->format("Y");
-    // Display the difference
-    $age = $current_time - $year;
-    if ($age < 15 || $age > 80) {
-        array_push($error_msg, "Age must be from 15 to 80 years old");
-        $go_back = true;
-    }
-    if ($go_back) {
-        session_start();
-        $_SESSION['postData'] = $_POST;
-        array_push($_SESSION['postData'], $error_msg);
-        header('Location: apply.php#popup-container');
-    }
-    $application = "INSERT INTO EOI(
-        user_id,
-        job_reference,
-        first_name,
-        last_name,
-        dob,
-        gender,
-        street_address,
-        suburb,
-        state,
-        postcode,
-        email,
-        phone,
-        other_skills
-    )
-    VALUES(
-        '{$_SESSION['user_id']}',
-        '{$_POST['job_reference_number']}',
-        '{$_POST['first_name']}',
-        '{$_POST['last_name']}',
-        '{$_POST['date_of_birth']}',
-        '{$_POST['gender']}',
-        '{$_POST['street_address']}',
-        '{$_POST['suburb']}',
-        '{$_POST['state']}',
-        '{$_POST['postcode']}',
-        '{$_POST['email']}',
-        '{$_POST['phone']}',
-        '{$_POST['other_skills']}'
-    );";
-    $result = mysqli_query($conn, $application);
-    if (isset($_POST['skills1']))
-    {
-        $application = "UPDATE EOI
-        SET skill1 = '{$_POST['skills1']}'
-        WHERE EOInumber = (
-            SELECT t.EOInumber
-            FROM (SELECT MAX(EOInumber) as EOInumber FROM EOI) AS t /*t is the representation of the value*/
-        );";
-        $result = mysqli_query($conn, $application);
-    }
-    if (isset($_POST['skills2']))
-    {
-        $application = "UPDATE EOI
-        SET skill2 = '{$_POST['skills2']}'
-        WHERE EOInumber = (
-            SELECT t.EOInumber
-            FROM (SELECT MAX(EOInumber) as EOInumber FROM EOI) AS t
-        );";
-        $result = mysqli_query($conn, $application);
-    }
-    if (isset($_POST['skills3']))
-    {
-        $application = "UPDATE EOI
-        SET skill3 = '{$_POST['skills3']}'
-        WHERE EOInumber = (
-            SELECT t.EOInumber
-            FROM (SELECT MAX(EOInumber) as EOInumber FROM EOI) AS t
-        );";
-        $result = mysqli_query($conn, $application);
-    }
-    if (isset($_POST['skills4']))
-    {
-        $application = "UPDATE EOI
-        SET skill4 = '{$_POST['skills4']}'
-        WHERE EOInumber = (
-            SELECT t.EOInumber
-            FROM (SELECT MAX(EOInumber) as EOInumber FROM EOI) AS t
-        );";
-        $result = mysqli_query($conn, $application);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo '<section>
+        <h2 class="section-heading">Please verify your application</h2>
+        <table class="process_table">
+                <tr class=';
+        echo "'process_row'>";
+        echo "
+                        <td>EOI number</td>
+                        <td>$rows</td>
+                    </tr>";
+        foreach ($_POST as $key => $value) {
+            echo "<tr class='process_row'>
+                            <td>$key</td>
+                            <td>$value</td>
+                        </tr>";
+        }
+        echo '
+        </table>
+        <form action="success.php" method="get">
+            <input type="submit" value="submit form" class="button">
+        </form>
+    </section>';
     }
     ?>
 </body>
