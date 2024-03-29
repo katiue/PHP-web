@@ -60,12 +60,26 @@ if(isset($_POST['change_status'])) {
     <title>Manage</title>
 </head>
 <body>
+    <?php
+        include("header.inc");
+        include("settings.php");
+    ?>
     <h2>List all EOIs</h2>
     <form method="post">
         <!-- Form for listing all EOIs -->
-        <input type="submit" name="list_all" value="List All EOIs">
+        <input type="submit" name="list_all" value="List All EOIs" class="button">
     </form>
-
+    <form method="post">
+        <!-- Form for listing all EOIs -->
+            <div class="input-field">
+                <input type="text" id="job_ref" name="job_ref" pattern="[A-Za-z0-9]{5}" required placeholder=" ">
+                <span>Job reference number</span>
+            </div>
+        <input type="submit" name="list_all" value="List All EOIs" class="button">
+    </form>
+    <?php
+        include("footer.inc");
+    ?>
     <!-- Add more forms for other functionalities (list by reference, list by applicant, delete by reference, change status) -->
 
 </body>
