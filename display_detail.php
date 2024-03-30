@@ -7,14 +7,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>Manage</title>
+    <title>Details</title>
 </head>
 <body>
 <?php
-    include("header.inc");
-    include("settings.php");
-    if($_SESSION['role']!='admin')
-        header("Location:index.php");
+    require_once("header.inc");
+    require_once("settings.php");
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach($_POST as $key => $value)
             $application=$key;
@@ -26,33 +24,40 @@
             <div class='process_table'>
                 <table>";
                     foreach ($user_data as $key => $value) {
-                        if($key!='status')
+                        if($key!='status'&&$value!=null)
                             echo "<tr class='process_row'>
                                         <td>$key</td>
                                         <td>$value</td>
                                     </tr>";
-                                }
+                        else if($_SESSION['role']!='admin')
+                            echo "<tr class='process_row'>
+                                        <td>$key</td>
+                                        <td>$value</td>
+                                    </tr>";
+                        }   
                     echo"
-                </table>";
+                </table>
+    </div>";
     }
     else
-        header("Location:manage.php")?>
-        <form action='manage.php' method='POST' class="status_update">
+        header("Location:manage.php");
+    if($_SESSION['role']=='admin'){
+    echo"
+        <form action='manage.php' method='POST' class='status_update'>
             <h3>Status</h3>
             <fieldset class='status-selection'>
                 <select id='status' name='status'>
-                    <option value='New'<?php if ($user_data['status'] == 'New') echo 'selected' ?>>New</option>
-                    <option value='Current'<?php if ($user_data['status'] == 'Current') echo 'selected'?>>Current</option>
-                    <option value='Final'<?php if ($user_data['status'] == 'Final') echo 'selected';?>>Final</option>
+                    <option value='New'"; if ($user_data['status'] == 'New') echo 'selected'; echo">New</option>
+                    <option value='Current'"; if ($user_data['status'] == 'Current') echo 'selected';echo">Current</option>
+                    <option value='Final'"; if ($user_data['status'] == 'Final') echo 'selected';echo">Final</option>
                 </select>
                 <span class='manage-down-arrow'>&#9660;</span>
-                <input type="hidden" name="EOI" value=<?php echo $application;?>>
+                <input type='hidden' name='EOI' value="; echo $application;echo">
             </fieldset>
-            <input type='submit' name='UPDATE' value="Submit" id="UPDATE" class='button process_button'>
-        </form>
-    </div>
-<?php
-    include("footer.inc");
+            <input type='submit' name='UPDATE' value='Submit' id='UPDATE' class='button process_button'>
+        </form>";
+    }
+    require_once("footer.inc");
 ?>
 </body>
 </html>

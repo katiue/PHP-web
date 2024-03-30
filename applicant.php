@@ -9,41 +9,55 @@ function sanitise_input($data)
     return $data;
 }
 
-// Check if the form is submitted for listing all EOIs
+// Check if the form is submitted for listing all users_dbs
 if(isset($_POST['UPDATE'])){
     $update_value=sanitise_input($_POST['status']);
-    $update_application=sanitise_input($_POST['EOI']);
-    $sql= "UPDATE EOI SET status = '$update_value' WHERE EOInumber = $update_application";
+    $update_application=sanitise_input($_POST['users_db']);
+    $sql= "UPDATE users_db SET status = '$update_value' WHERE user_id = $update_application";
     $result = mysqli_query($conn, $sql);
 }
 if(isset($_POST['list_all'])) {
-    $sql = "SELECT * FROM EOI";
+    $sql = "SELECT * FROM users_db";
     $result = mysqli_query($conn, $sql);
     // Display the results
     // You can format the results as HTML table or any other format
 }
 
-// Check if the form is submitted for listing EOIs by job reference number
-if(isset($_POST['list_by_reference'])) {
-    $job_reference = sanitise_input($_POST['job_reference']);
-    $sql = "SELECT * FROM EOI WHERE job_reference = '$job_reference'";
+// Check if the form is submitted for listing users_dbs by job reference number
+if(isset($_POST['list_by_phone'])) {
+    $phone = sanitise_input($_POST['phone']);
+    $sql = "SELECT * FROM users_db WHERE phone = '$phone'";
+    $result = mysqli_query($conn, $sql);
+    // Display the results
+}
+// Check if the form is submitted for listing users_dbs by job reference number
+if(isset($_POST['list_by_email'])) {
+    $email = sanitise_input($_POST['email']);
+    $sql = "SELECT * FROM users_db WHERE email = '$email'";
+    $result = mysqli_query($conn, $sql);
+    // Display the results
+}
+// Check if the form is submitted for listing users_dbs by job reference number
+if(isset($_POST['list_by_role'])) {
+    $role = sanitise_input($_POST['role']);
+    $sql = "SELECT * FROM users_db WHERE role = '$role'";
     $result = mysqli_query($conn, $sql);
     // Display the results
 }
 
-// Check if the form is submitted for listing EOIs by applicant name
+// Check if the form is submitted for listing users_dbs by applicant name
 if(isset($_POST['list_by_applicant'])) {
     $first_name = sanitise_input($_POST['first_name']);
     $last_name = sanitise_input($_POST['last_name']);
-    $sql = "SELECT * FROM EOI WHERE first_name = '$first_name' OR last_name = '$last_name'";
+    $sql = "SELECT * FROM users_db WHERE first_name = '$first_name' OR last_name = '$last_name'";
     $result = mysqli_query($conn, $sql);
     // Display the results
 }
 
-// Check if the form is submitted for deleting EOIs by job reference number
-if(isset($_POST['delete_by_reference'])) {
+// Check if the form is submitted for deleting users_dbs by job reference number
+if(isset($_POST['delete_by_user_id'])) {
     $job_del = sanitise_input($_POST['job_del']);
-    $sql = "DELETE FROM EOI WHERE job_reference = '$job_del'";
+    $sql = "DELETE FROM users_db WHERE user_id = '$job_del'";
     $delete = mysqli_query($conn, $sql);
     // Display success or failure message
 }
@@ -69,17 +83,35 @@ if(isset($_POST['delete_by_reference'])) {
     ?>
     <div class="manage-options">
         <form method="post" class="manage-form">
-            <h2>List all EOIs</h2>
-            <input type="submit" name="list_all" value="List" class="button">
+            <h2>List all users_dbs</h2>
+            <input type="submit" name="list_all" value="List" class="button applicant_button">
         </form>
 
         <form method="post" class="manage-form" novalidate='novalidate'>
-            <h2>List by job reference</h2>
+            <h2>List by phone number</h2>
             <div class="input-field">
-                <input type="text" id="job_reference" name="job_reference" pattern="[A-Za-z0-9]{5}" required placeholder=" ">
+                <input type="text" id="phone" name="phone" pattern="[0-9\s]{8,12}" required placeholder=" ">
+                <span>Phone number</span>
+            </div>
+            <input type="submit" name="list_by_phone" value="List" class="button applicant_button">
+        </form>
+
+        <form method="post" class="manage-form" novalidate='novalidate'>
+            <h2>List by e-mail address</h2>
+            <div class="input-field">
+                <input type="email" id="email" name="email" required placeholder=" ">
+                <span>E-mail address</span>
+            </div>
+            <input type="submit" name="list_by_email" value="List" class="button applicant_button">
+        </form>
+
+        <form method="post" class="manage-form" novalidate='novalidate'>
+            <h2>List by role</h2>
+            <div class="input-field">
+                <input type="text" id="role" name="role" pattern="[A-Za-z]" required placeholder=" ">
                 <span>Job reference number</span>
             </div>
-            <input type="submit" name="list_by_reference" value="List" class="button">
+            <input type="submit" name="list_by_role" value="List" class="button applicant_button">
         </form>
 
         <form method="post" class="manage-form" novalidate='novalidate'>
@@ -92,17 +124,17 @@ if(isset($_POST['delete_by_reference'])) {
                 <input type="text" id="last_name" name="last_name" pattern="[\p{L}\p{Mn}\p{Pd}'\s]{1,20}" required placeholder=" ">
                 <span>Last name</span>
             </div>
-            <input type="submit" name="list_by_applicant" value="List" class="button">
+            <input type="submit" name="list_by_applicant" value="List" class="button applicant_button">
         </form>
 
-        <form method="post" class="manage-form">
-            <h2>Delete EOIs</h2>
-            <!-- Form for listing all EOIs -->
+        <form method="post" class="manage-form" novalidate="novalidate">
+            <h2>Delete user</h2>
+            <!-- Form for listing all users_dbs -->
             <div class="input-field">
-                <input type="text" id="job_del" name="job_del" pattern="[A-Za-z0-9]{5}" required placeholder=" ">
-                <span>Job reference number</span>
+                <input type="text" id="job_del" name="job_del" pattern="[A-Za-z0-9]" required placeholder=" ">
+                <span>User id</span>
             </div>
-            <input type="submit" name="delete_by_reference" value="Delete EOIs" class="button">
+            <input type="submit" name="delete_by_user_id" value="Delete" class="button applicant_button">
         </form>
     </div>
     <div class="EOI-displayer">
@@ -112,12 +144,12 @@ if(isset($_POST['delete_by_reference'])) {
                     <table class='manage-table'>
                     <thead>
                         <tr>
-                            <th>EOI number</th>
-                            <th>Job reference number</th>
+                            <th>User id</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Status</th>
-                            <th>Detail</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Role</th>
                         </tr>
                     </thead>";
             }
@@ -126,16 +158,12 @@ if(isset($_POST['delete_by_reference'])) {
                     
                     echo"
                         <tr class='time-table-row'>
-                            <td>" . $application_data['EOInumber'] . " </td>
-                            <td>" .$application_data['job_reference'] . "</td>
+                            <td>" . $application_data['user_id'] . " </td>
                             <td>" .$application_data['first_name']. "</td>
                             <td>" .$application_data['last_name']. "</td>
-                            <td>" .$application_data['status']. "</td>
-                            <td>
-                                <form action='display_detail.php' method='POST' class='manage-view'> 
-                                    <input type='submit' name=".$application_data['EOInumber']." value='view' id=".$application_data['EOInumber']." class='form_reveal_button'>
-                                </form>
-                            </td>
+                            <td>" .$application_data['phone'] . "</td>
+                            <td>" .$application_data['email']. "</td>
+                            <td>" .$application_data['role']. "</td>
                         </tr>";
                     }
                 }

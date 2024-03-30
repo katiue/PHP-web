@@ -13,12 +13,13 @@
                 <li><a class="nav-item" href="about.php">ABOUT</a></li>';
         session_start();
         if (isset($_SESSION['role']))
-            if($_SESSION['role']=='admin')
+            if($_SESSION['role']=='admin'){
                 echo '<li><a class="nav-item" href="manage.php">MANAGE</a></li>';
+                echo '<li><a class="nav-item" href="applicant.php">APPLICANT</a></li>';
+            }
                 echo '<li><a class="nav-item" href="enhancements.php">ENHANCEMENTS</a></li>
                       <li><a class="nav-item" href="mailto:104486332@student.swin.edu.au">EMAIL</a></li>';
-
-    echo '<a class="close-hamburger-menu" href="#">
+                echo '<a class="close-hamburger-menu" href="#">
                     <img src="images/light/close.svg" alt="Close Menu Icon"
                         class="light-mode-element hamburger-menu-icon">
                     <img src="images/dark/close.svg" alt="Close Menu Icon"

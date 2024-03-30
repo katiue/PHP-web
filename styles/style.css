@@ -1388,6 +1388,11 @@ fieldset {
     right: 0;
     pointer-events: none;
 }
+/*applicant page*/
+.applicant_button{
+    max-width: 15vw;
+    font-size: 1em;
+}
 /* Media query for mobile support */
 @media only screen and (max-width: 768px) {
 
@@ -1812,13 +1817,18 @@ fieldset {
     .EOI-displayer{
         display: flex;
         padding: 0;
-        margin-left: 0;
         align-self: flex-end;
-        width: fit-content;
         font-size: 1em;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
+
     .form_reveal_button{
         width: 12vw;
+    }
+    
+    .applicant_button{
+        max-width: none;
     }
 }
 
