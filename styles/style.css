@@ -111,9 +111,28 @@ header {
     margin-top: 10vh;
     right: 0;
     transition: 0.3s;
+    padding-left: 2vw;
 }
 .user_profile:target{
     display: flex;
+}
+
+.notification{
+    display: flex;
+    transform: translateY(-200%);
+    position: absolute;
+    flex-direction: column;
+    background-color: var(--secondary-background-color);
+    width: 10vw;
+    align-items: flex-start;
+    height: 100vh;
+    justify-content: flex-start;
+    right: 0;
+    transition: 0.3s;
+    padding-left: 2vw;
+}
+.notification:target{
+    transform: translateY(0);
 }
 .profile_close{
     height: 40px;

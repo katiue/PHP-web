@@ -1,6 +1,8 @@
 <?php
 // Include the database connection file
+include("header.inc");
 include_once "settings.php";
+session_start();
 function sanitise_input($data)
 {
     $data = trim($data);
@@ -14,6 +16,45 @@ if(isset($_POST['UPDATE'])){
     $update_value=sanitise_input($_POST['role']);
     $update_application=sanitise_input($_POST['id']);
     $sql= "UPDATE users_db SET role = '$update_value' WHERE user_id = '$update_application' ";
+    $result = mysqli_query($conn, $sql);
+
+    $checkTableSQL = "SHOW TABLES LIKE 'notification'";
+    $result = mysqli_query($conn, $checkTableSQL);
+
+    if (!$result || $result->num_rows == 0) {
+        $createTableSQL = "
+                CREATE TABLE notification(
+                    sender VARCHAR(255) NOT NULL,
+                    receiver VARCHAR(255) NOT NULL,
+                    noti TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )";
+        if (!mysqli_query($conn,  $createTableSQL)) {
+            $checkTableSQL = "SHOW TABLES LIKE 'users_db'";
+            $result = mysqli_query($conn, $checkTableSQL);
+            if (!$result || $result->num_rows == 0) {
+                mysqli_close($conn);
+                throw new Exception('Table creation error: ' . mysqli_connect_error());
+            }
+        }            
+    }
+    
+    $sql= "SELECT * FROM EOI WHERE EOInumber = $update_application";
+    $result = mysqli_query($conn, $sql);
+
+    while($row=mysqli_fetch_assoc($result))
+        $receiver=$row['user_id'];
+    $sender=$_SESSION['user_id'];
+    $sql="INSERT INTO notification(
+        sender,
+        receiver,
+        noti
+    )
+    VALUE(
+        '{$sender}',
+        '{$receiver}',
+        'Status of your form have been changed'
+    );";
     $result = mysqli_query($conn, $sql);
 }
 if(isset($_POST['list_all'])) {
@@ -77,7 +118,6 @@ if(isset($_POST['delete_by_user_id'])) {
 </head>
 <body>
     <?php
-        include("header.inc");
         if($_SESSION['role']!='admin')
             header("Location:index.php");
     ?>

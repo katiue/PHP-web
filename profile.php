@@ -12,16 +12,19 @@
 </head>
 <body>
     <?php
-        require_once('header.inc');
         require_once('settings.php');
+        require_once('header.inc');
         //getting user's id to display
         $user_id=$_SESSION['user_id'];
         $sql = "SELECT * FROM EOI WHERE user_id='$user_id'";
         $result = mysqli_query($conn, $sql)
     ?>
+    <div class="background_login">
+        <h2>Submitted form</h2>
+    </div>
     <div class="EOI-displayer">
         <?php
-            if(isset($result)&&!isset($_POST['UPDATE'])){
+            if(isset($result)){
                 echo"
                     <table class='manage-table'>
                     <thead>
@@ -35,7 +38,7 @@
                         </tr>
                     </thead>";
             }
-            if(isset($result)&&!isset($_POST['UPDATE'])){
+            if(isset($result)){
                 while($application_data = mysqli_fetch_assoc($result)){
                     
                     echo"

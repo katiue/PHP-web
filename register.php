@@ -13,8 +13,8 @@
 
 <body>
     <?php
-    require_once("header.inc");
     require_once("settings.php");
+    require_once("header.inc");
     if(isset($_SESSION['user_id']))
         header("Location: login.php");
     ?>

@@ -11,8 +11,8 @@
 </head>
 <body>
 <?php
-    require_once("header.inc");
     require_once("settings.php");
+    require_once("header.inc");
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach($_POST as $key => $value)
             $application=$key;

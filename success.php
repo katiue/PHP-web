@@ -11,8 +11,8 @@
 </head>
 <body>
     <?php
-        include("header.inc");
         include("settings.php");
+        include("header.inc");
         if (isset($_SESSION['postData']))
         {
             $postData = $_SESSION['postData']; // Retrieve POST data from session

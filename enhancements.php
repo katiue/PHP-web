@@ -13,6 +13,7 @@
 
 <body>
     <?php
+        require_once("settings.php");
         include("header.inc");
     ?>
     <main>

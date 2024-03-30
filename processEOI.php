@@ -13,8 +13,8 @@
 
 <body>
     <?php
-    include("header.inc");
     include("settings.php");
+    include("header.inc");
     function sanitise_input($data)
     {
         $data = trim($data);

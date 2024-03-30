@@ -13,6 +13,7 @@
 
 <body>
     <?php
+    require_once("settings.php");
     include("header.inc");
     if(isset($_SESSION['user_id']))
         header("Location: login.php");
@@ -37,7 +38,6 @@
 
             <?php
 
-            require_once("settings.php");
 
             $attributes=[
                 "user_id",
