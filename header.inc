@@ -48,7 +48,7 @@
                         class="dark-mode-element close-icon">
                 </a>';
                 echo'
-            <a class="nav-item" href="profile.php">Profile</a>
+            <a class="nav-item" href="profile.php">Form history</a>
             <a class="nav-item" href="#notification">Notification</a>
             <a class="nav-item" href="logout.php">Log out</a>
         </div>

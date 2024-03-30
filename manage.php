@@ -67,6 +67,7 @@ if(isset($_POST['delete_by_reference'])) {
         if($_SESSION['role']!='admin')
             header("Location:index.php");
     ?>
+    <h1>Manage form in this website</h1>
     <div class="manage-options">
         <form method="post" class="manage-form">
             <h2>List all EOIs</h2>

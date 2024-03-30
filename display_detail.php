@@ -36,27 +36,27 @@
                                     </tr>";
                         }   
                     echo"
-                </table>
-    </div>";
+                    </table>";
+        if($_SESSION['role']=='admin'){
+            echo"
+            <form action='manage.php' method='POST' class='status_update'>
+                <h3>Status</h3>
+                <fieldset class='status-selection'>
+                    <select id='status' name='status'>
+                        <option value='New'"; if ($user_data['status'] == 'New') echo 'selected'; echo">New</option>
+                        <option value='Current'"; if ($user_data['status'] == 'Current') echo 'selected';echo">Current</option>
+                        <option value='Final'"; if ($user_data['status'] == 'Final') echo 'selected';echo">Final</option>
+                    </select>
+                    <span class='manage-down-arrow'>&#9660;</span>
+                    <input type='hidden' name='EOI' value="; echo $application;echo">
+                </fieldset>
+                <input type='submit' name='UPDATE' value='Submit' id='UPDATE' class='button process_button'>
+            </form>";
+        }
+    echo"</div>";
     }
     else
         header("Location:manage.php");
-    if($_SESSION['role']=='admin'){
-    echo"
-        <form action='manage.php' method='POST' class='status_update'>
-            <h3>Status</h3>
-            <fieldset class='status-selection'>
-                <select id='status' name='status'>
-                    <option value='New'"; if ($user_data['status'] == 'New') echo 'selected'; echo">New</option>
-                    <option value='Current'"; if ($user_data['status'] == 'Current') echo 'selected';echo">Current</option>
-                    <option value='Final'"; if ($user_data['status'] == 'Final') echo 'selected';echo">Final</option>
-                </select>
-                <span class='manage-down-arrow'>&#9660;</span>
-                <input type='hidden' name='EOI' value="; echo $application;echo">
-            </fieldset>
-            <input type='submit' name='UPDATE' value='Submit' id='UPDATE' class='button process_button'>
-        </form>";
-    }
     require_once("footer.inc");
 ?>
 </body>

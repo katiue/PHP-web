@@ -1300,8 +1300,8 @@ fieldset {
     font-size: 1.5em;
     display: flex;
     width: 100%;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     overflow: auto;
 }
 
@@ -1392,6 +1392,11 @@ fieldset {
 .applicant_button{
     max-width: 15vw;
     font-size: 1em;
+}
+.role_update{
+    display: flex;
+    flex-direction: row;
+    min-width: 12rem;
 }
 /* Media query for mobile support */
 @media only screen and (max-width: 768px) {

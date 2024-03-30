@@ -11,9 +11,9 @@ function sanitise_input($data)
 
 // Check if the form is submitted for listing all users_dbs
 if(isset($_POST['UPDATE'])){
-    $update_value=sanitise_input($_POST['status']);
-    $update_application=sanitise_input($_POST['users_db']);
-    $sql= "UPDATE users_db SET status = '$update_value' WHERE user_id = $update_application";
+    $update_value=sanitise_input($_POST['role']);
+    $update_application=sanitise_input($_POST['id']);
+    $sql= "UPDATE users_db SET role = '$update_value' WHERE user_id = '$update_application' ";
     $result = mysqli_query($conn, $sql);
 }
 if(isset($_POST['list_all'])) {
@@ -81,6 +81,7 @@ if(isset($_POST['delete_by_user_id'])) {
         if($_SESSION['role']!='admin')
             header("Location:index.php");
     ?>
+    <h1>Manage user in this website</h1>
     <div class="manage-options">
         <form method="post" class="manage-form">
             <h2>List all users_dbs</h2>
@@ -163,7 +164,19 @@ if(isset($_POST['delete_by_user_id'])) {
                             <td>" .$application_data['last_name']. "</td>
                             <td>" .$application_data['phone'] . "</td>
                             <td>" .$application_data['email']. "</td>
-                            <td>" .$application_data['role']. "</td>
+                            <td>
+                            <form action='applicant.php' method='POST' class='role_update'>
+                                <fieldset class='status-selection'>
+                                    <select id='role' name='role'>
+                                        <option value='admin'"; if ($application_data['role'] == 'admin') echo 'selected'; echo">admin</option>
+                                        <option value='user'"; if ($application_data['role'] == 'user') echo 'selected';echo">user</option>
+                                    </select>
+                                    <span class='manage-down-arrow'>&#9660;</span>
+                                    <input type='hidden' name='id' value="; echo $application_data['user_id'];echo">
+                                </fieldset>
+                                <input type='submit' name='UPDATE' value='Submit' id='UPDATE' class='button'>
+                            </form>
+                            </td>
                         </tr>";
                     }
                 }
