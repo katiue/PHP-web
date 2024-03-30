@@ -14,6 +14,8 @@
 <body>
     <?php
     include("header.inc");
+    if(isset($_SESSION['user_id']))
+        header("Location: login.php");
     ?>
     <div class="background_login">
         <h2>Login page</h2>

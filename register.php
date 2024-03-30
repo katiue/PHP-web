@@ -15,6 +15,8 @@
     <?php
     require_once("header.inc");
     require_once("settings.php");
+    if(isset($_SESSION['user_id']))
+        header("Location: login.php");
     ?>
     <?php
     function isClientNameExists($clientName, $conn)
