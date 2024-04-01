@@ -1,7 +1,7 @@
 <?php
 // Include the database connection file
-include("header.inc");
 include_once "settings.php";
+include("header.inc");
 session_start();
 function sanitise_input($data)
 {
