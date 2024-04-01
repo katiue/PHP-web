@@ -2,7 +2,6 @@
 // Include the database connection file
 include_once "settings.php";
 include("header.inc");
-session_start();
 function sanitise_input($data)
 {
     $data = trim($data);
