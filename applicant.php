@@ -38,7 +38,7 @@ if(isset($_POST['UPDATE'])){
         }            
     }
     
-    $sql= "SELECT * FROM EOI WHERE EOInumber = $update_application";
+    $sql= "SELECT * FROM users_db WHERE user_id = '$update_application' ";
     $result = mysqli_query($conn, $sql);
 
     while($row=mysqli_fetch_assoc($result))
@@ -52,7 +52,7 @@ if(isset($_POST['UPDATE'])){
     VALUE(
         '{$sender}',
         '{$receiver}',
-        'Status of your form have been changed'
+        'Your role have been changed'
     );";
     $result = mysqli_query($conn, $sql);
 }
@@ -123,7 +123,7 @@ if(isset($_POST['delete_by_user_id'])) {
     <h1>Manage user in this website</h1>
     <div class="manage-options">
         <form method="post" class="manage-form">
-            <h2>List all users_dbs</h2>
+            <h2>List all users</h2>
             <input type="submit" name="list_all" value="List" class="button applicant_button">
         </form>
 

@@ -69,7 +69,10 @@
                             class="light-mode-element close-icon">
                         <img src="images/dark/close.svg" alt="Close Menu Icon"
                             class="dark-mode-element close-icon">
-                    </a>';
+                    </a>
+                    <h1>Hello, '; 
+                    $name=$_SESSION['last_name'];
+                    echo "$name</h1>";
                     echo'
                 <a class="nav-item" href="profile.php">Form history</a>
                 <a class="nav-item" href="#notification">Notification</a>
