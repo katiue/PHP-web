@@ -44,7 +44,7 @@
                 <img src="images/light/double-quotes-end.svg" alt="Double Quotes End Icon" class="light-mode-element quote-icon end-quote">
                 <img src="images/dark/double-quotes-end.svg" alt="Double Quotes End Icon" class="dark-mode-element quote-icon end-quote">
             </div>
-            <a href="about.html" class="button discover-who-we-are-button">
+            <a href="about.php" class="button discover-who-we-are-button">
                 <span>DISCOVER WHO WE ARE
                     <img src="images/light/right-arrow.svg" alt="Right Arrow Icon" class="light-mode-element arrow-icon">
                     <img src="images/dark/right-arrow.svg" alt="Right Arrow Icon" class="dark-mode-element arrow-icon">
@@ -140,7 +140,7 @@
                     vision. Apply now and be at the forefront of transformation.
                 </p>
             </div>
-            <a href="jobs.html" class="button discover-jobs-button">
+            <a href="jobs.php" class="button discover-jobs-button">
                 <span>DISCOVER JOBS
                     <img src="images/light/right-arrow.svg" alt="Right Arrow Icon" class="light-mode-element arrow-icon">
                     <img src="images/dark/right-arrow.svg" alt="Right Arrow Icon" class="dark-mode-element arrow-icon">

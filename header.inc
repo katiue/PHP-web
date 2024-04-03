@@ -35,7 +35,7 @@
             if (isset($_SESSION['role']))
                 if($_SESSION['role']=='admin'){
                     echo '
-                    <li><a class="nav-item" href="manage.php">MANGE</a></li>
+                    <li><a class="nav-item" href="manage.php">MANAGE</a></li>
                     <li><a class="nav-item" href="applicant.php">APPLICANT</a></li>';
                 }
                     echo '<li><a class="nav-item" href="enhancements.php">ENHANCEMENTS</a></li>

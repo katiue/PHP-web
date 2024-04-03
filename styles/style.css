@@ -1083,7 +1083,7 @@ fieldset {
     display: table-row-group;
 }
 
-/* Enhancements page styles (enhancements.html) */
+/* Enhancements page styles (enhancements.php) */
 
 /* Enhancement hero section styles */
 .enhancements-hero-section {
@@ -1183,6 +1183,22 @@ fieldset {
     width: 60%;
     margin-top: 1rem;
     margin-bottom: 2rem;
+}
+
+.management{
+    width: 70vw;
+}
+
+.profile_interface{
+    width: 10vw;
+}
+
+.nav-demo{
+    width: 50vw;
+}
+.nav-demo-container{
+    flex-direction: column;
+    gap: 0rem;
 }
 /*login page*/
 .background_login{
@@ -1661,7 +1677,7 @@ fieldset {
         font-size: 1rem;
     }
 
-    /* Jobs page styles (jobs.html) */
+    /* Jobs page styles (jobs.php) */
     .jobs-hero-section {
         flex-direction: column;
         justify-content: flex-start;
@@ -1695,7 +1711,7 @@ fieldset {
         font-size: 1.25rem;
     }
 
-    /* Apply page styles (apply.html) */
+    /* Apply page styles (apply.php) */
     .form-and-title-container {
         flex-direction: column;
         margin: 4vh 4vw 12vh 4vw;
@@ -1741,7 +1757,7 @@ fieldset {
         margin-top: 10rem;
     }
 
-    /* About page styles (about.html) */
+    /* About page styles (about.php) */
     .about-us-section {
         width: 95%;
         margin-bottom: 20vh;
@@ -1795,7 +1811,7 @@ fieldset {
         display: none;
     }
 
-    /* Enhancements page (enhancements.html) */
+    /* Enhancements page (enhancements.php) */
     .enhancements-hero-section h1 {
         font-size: 2rem;
     }
@@ -1868,6 +1884,15 @@ fieldset {
     
     .applicant_button{
         max-width: none;
+    }
+    
+    .management{
+        width: 90vw;
+    }
+
+    .profile_interface{
+        width: 20vw;
+        height: 30vh;
     }
 }
 

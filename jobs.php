@@ -309,7 +309,7 @@
 
         <section class="apply-now-section">
             <h2>Ready to enroll?</h2>
-            <a href="apply.html" class="button">
+            <a href="apply.php" class="button">
                 <span>APPLY NOW
                     <img src="images/light/right-arrow.svg" alt="Right Arrow Icon" class="light-mode-element arrow-icon">
                     <img src="images/dark/right-arrow.svg" alt="Right Arrow Icon" class="dark-mode-element arrow-icon">

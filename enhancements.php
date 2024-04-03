@@ -133,6 +133,68 @@
                 and adjusted it to our preferences.
             </p>
         </section>
+
+        <section class="enhancement-section">
+            <h2 class="section-heading">🧑‍💻 Friendly interface</h2>
+            
+            <h3 class="enhancement-heading">What is it?</h3>
+            <p>A system which allows the <span class="blue-bold-italic">admins</span> of the server to view, adjust and delete users.</p>
+            <p>This creates a easier way to handle the web data.</p>
+
+            <div class="demo-images-container">
+                <img src="images/light/user-management.png" alt="User manage interface" class="management light-mode-element">
+                <img src="images/dark/user-management.png" alt="User manage interface" class="management dark-mode-element">
+            </div>
+
+            <p>For <span class="blue-bold-italic">users</span>, the interface is easy to understand and use.</p>
+            <div class="demo-images-container">
+                <img src="images/light/notification-bar.png" alt="User manage interface" class="profile_interface light-mode-element">
+                <img src="images/dark/notification-bar.png" alt="User manage interface" class="profile_interface dark-mode-element">
+
+                <img src="images/light/profile-bar.png" alt="User manage interface" class="profile_interface light-mode-element">
+                <img src="images/dark/profile-bar.png" alt="User manage interface" class="profile_interface dark-mode-element">
+            </div>
+            
+            <h3>How is it implemented?</h3>
+            <p>The datas of every database are <span class="blue-bold-italic">synchronized and linked</span> to the user account throught <span class="blue-bold-italic">user id</span> to ensure data comprehension</p>
+            <div class="demo-images-container">
+                <img src="images/table-code.png" alt="table Code" class="code-image">
+            </div>
+            <p>Whenever changes are made on a user's account the website will store and send notificationto that account. Therefore, actions are easy to trace back</p>
+            <div class="demo-images-container">
+                <img src="images/notification-database.png" alt="table Code" class="code-image">
+            </div>
+            <p>There is also a differnce on admin's interface and user's interface</p>
+            <div class="demo-images-container nav-demo-container">
+                <p>Admin:</p>
+                <img src="images/light/admin-nav-bar.png" alt="Hamburger Menu Demo" class="light-mode-element nav-demo">
+                <img src="images/dark/admin-nav-bar.png" alt="Hamburger Menu Demo" class="dark-mode-element nav-demo">
+
+                <p>User:</p>
+                <img src="images/light/user-nav-bar.png" alt="Hamburger Menu Open" class="light-mode-element nav-demo">
+                <img src="images/dark/user-nav-bar.png" alt="Hamburger Menu Open" class="dark-mode-element nav-demo">
+            </div>
+        </section>
+
+        <section class="enhancement-section">
+            <h2 class="section-heading">🛡️ Secure account on the website</h2>
+
+            <h3 class="enhancement-heading">What is it?</h3>
+            <p>Methods implemented to <span class="blue-bold-italic">encode</span> user's data like <span class="blue-bold-italic">id</span> and <span class="blue-bold-italic">password</span></p>
+            
+            <div class="demo-images-container">
+                <img src="images/pwd.png" alt="Hamburger Menu Desktop" class="code-image nav-demo">
+                <img src="images/user-id.png" alt="Hamburger Menu Mobile" class="code-image nav-demo">
+            </div>
+
+            <h3 class="enhancement-heading">How it implemented?</h3>
+            <p>Methods implemented to <span class="blue-bold-italic">encode</span> user's data like <span class="blue-bold-italic">id</span> and <span class="blue-bold-italic">password</span></p>
+            
+            <div class="demo-images-container">
+                <img src="images/pwd-hash.png" alt="Hamburger Menu Desktop" class="code-image nav-demo">
+                <img src="images/id-code.png" alt="Hamburger Menu Mobile" class="code-image nav-demo">
+            </div>
+        </section>
     </main>
     <?php
         include("footer.inc");
