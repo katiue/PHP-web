@@ -1,4 +1,24 @@
 <?php
+    $checkTableSQL = "SHOW TABLES LIKE 'notification'";
+    $result = mysqli_query($conn, $checkTableSQL);
+
+    if (!$result || $result->num_rows == 0) {
+        $createTableSQL = "
+                CREATE TABLE notification(
+                    sender VARCHAR(255) NOT NULL,
+                    receiver VARCHAR(255) NOT NULL,
+                    noti TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )";
+        if (!mysqli_query($conn,  $createTableSQL)) {
+            $checkTableSQL = "SHOW TABLES LIKE 'users_db'";
+            $result = mysqli_query($conn, $checkTableSQL);
+            if (!$result || $result->num_rows == 0) {
+                mysqli_close($conn);
+                throw new Exception('Table creation error: ' . mysqli_connect_error());
+            }
+        }            
+    }
         echo '
         <header>
             <img src="images/light/logo-with-text.svg" alt="Future Powered Solutions Logo"

@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Manage</title>
+</head>
+<body>
 <?php
 // Include the database connection file
 include_once "settings.php";
@@ -16,27 +28,6 @@ if(isset($_POST['UPDATE'])){
     $update_application=sanitise_input($_POST['id']);
     $sql= "UPDATE users_db SET role = '$update_value' WHERE user_id = '$update_application' ";
     $result = mysqli_query($conn, $sql);
-
-    $checkTableSQL = "SHOW TABLES LIKE 'notification'";
-    $result = mysqli_query($conn, $checkTableSQL);
-
-    if (!$result || $result->num_rows == 0) {
-        $createTableSQL = "
-                CREATE TABLE notification(
-                    sender VARCHAR(255) NOT NULL,
-                    receiver VARCHAR(255) NOT NULL,
-                    noti TEXT,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )";
-        if (!mysqli_query($conn,  $createTableSQL)) {
-            $checkTableSQL = "SHOW TABLES LIKE 'users_db'";
-            $result = mysqli_query($conn, $checkTableSQL);
-            if (!$result || $result->num_rows == 0) {
-                mysqli_close($conn);
-                throw new Exception('Table creation error: ' . mysqli_connect_error());
-            }
-        }            
-    }
     
     $sql= "SELECT * FROM users_db WHERE user_id = '$update_application' ";
     $result = mysqli_query($conn, $sql);
@@ -102,23 +93,8 @@ if(isset($_POST['delete_by_user_id'])) {
     // Display success or failure message
 }
 
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>Manage</title>
-</head>
-<body>
-    <?php
-        if($_SESSION['role']!='admin')
-            header("Location:index.php");
+    if($_SESSION['role']!='admin')
+        header("Location:index.php");
     ?>
     <h1>Manage user in this website</h1>
     <div class="manage-options">
