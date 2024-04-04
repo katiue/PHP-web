@@ -13,6 +13,7 @@
 
 <body>
     <?php
+    require("password.php");
     require_once("settings.php");
     require_once("header.inc");
     if(isset($_SESSION['user_id']))
