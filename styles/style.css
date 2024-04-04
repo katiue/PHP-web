@@ -1894,6 +1894,10 @@ fieldset {
         width: 20vw;
         height: 30vh;
     }
+
+    .nav-demo{
+        width: 90vw;
+    }
 }
 
 /* Media query for dark mode */

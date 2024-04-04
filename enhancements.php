@@ -180,7 +180,8 @@
             <h2 class="section-heading">🛡️ Secure account on the website</h2>
 
             <h3 class="enhancement-heading">What is it?</h3>
-            <p>Methods implemented to <span class="blue-bold-italic">encode</span> user's data like <span class="blue-bold-italic">id</span> and <span class="blue-bold-italic">password</span></p>
+            <p>Methods implemented to <span class="blue-bold-italic">encode</span> user's data like <span class="blue-bold-italic">id</span> and <span class="blue-bold-italic">password</span>.</p>
+            <p>For password. I implemented password hashing method called <span class="blue-bold-italic">PASSWORD_BCRYPT</span>. This ensures that your users' passwords are stored securely, safeguarding against unauthorized access and common password-based attacks. </p>
             
             <div class="demo-images-container">
                 <img src="images/pwd.png" alt="Hamburger Menu Desktop" class="code-image nav-demo">
@@ -194,6 +195,16 @@
                 <img src="images/pwd-hash.png" alt="Hamburger Menu Desktop" class="code-image nav-demo">
                 <img src="images/id-code.png" alt="Hamburger Menu Mobile" class="code-image nav-demo">
             </div>
+            <img src="images/password_hash_code.png" alt="password hash code" class="large-code-image">
+            <h3>Where did we get the idea?</h3>
+            <p>We learned this implementation from
+                <a href="https://github.com/ircmaxell/password_compat" target="_blank">
+                    this project
+                    <img src="images/light/right-arrow.svg" alt="Arrow Icon" class="light-mode-element arrow-icon">
+                    <img src="images/dark/right-arrow.svg" alt="Arrow Icon" class="dark-mode-element arrow-icon">
+                </a>
+                and implemented it to our website.
+            </p>
         </section>
     </main>
     <?php
