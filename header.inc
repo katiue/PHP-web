@@ -1,7 +1,8 @@
 <?php
+    /*settings file must be required before file*/
     $checkTableSQL = "SHOW TABLES LIKE 'notification'";
     $result = mysqli_query($conn, $checkTableSQL);
-
+    /*check if notification table existed in database*/
     if (!$result || $result->num_rows == 0) {
         $createTableSQL = "
                 CREATE TABLE notification(
@@ -10,6 +11,7 @@
                     noti TEXT,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )";
+        /*create notification table*/
         if (!mysqli_query($conn,  $createTableSQL)) {
             $checkTableSQL = "SHOW TABLES LIKE 'users_db'";
             $result = mysqli_query($conn, $checkTableSQL);
@@ -39,7 +41,7 @@
                     <li><a class="nav-item" href="applicant.php">APPLICANT</a></li>';
                 }
                     echo '<li><a class="nav-item" href="enhancements.php">ENHANCEMENTS</a></li>
-                          <li><a class="nav-item" href="mailto:104486332@student.swin.edu.au">EMAIL</a></li>';
+                          <li><a class="nav-item" href="mailto:104973106@student.swin.edu.au">EMAIL</a></li>';
                     echo '<a class="close-hamburger-menu" href="#">
                         <img src="images/light/close.svg" alt="Close Menu Icon"
                             class="light-mode-element hamburger-menu-icon">

@@ -15,7 +15,7 @@
         <a href="mailto:104486332@student.swin.edu.au" class="contact-item">
             <img src="images/light/email.svg" alt="Email Icon" class="light-mode-element contact-icon">
             <img src="images/dark/email.svg" alt="Email Icon" class="dark-mode-element contact-icon">
-            <p>104486332@student.swin.edu.au</p>
+            <p>104973106@student.swin.edu.au</p>
         </a>
         <p>© 2024 Future Powered Solutions</p>
     </footer>';
