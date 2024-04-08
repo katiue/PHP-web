@@ -1,12 +1,4 @@
 <?php
-/**
- * A Compatibility library with PHP 5.5's simplified password hashing API.
- *
- * @author Anthony Ferrara <ircmaxell@php.net>
- * @license http://www.opensource.org/licenses/mit-license.html MIT License
- * @copyright 2012 The Authors
- */
-
 namespace {
 
     if (!defined('PASSWORD_BCRYPT')) {
@@ -101,12 +93,6 @@ namespace {
             } else {
                 $buffer = '';
                 $buffer_valid = false;
-                if (function_exists('mcrypt_create_iv') && !defined('PHALANGER')) {
-                    $buffer = mcrypt_create_iv($raw_salt_len, MCRYPT_DEV_URANDOM);
-                    if ($buffer) {
-                        $buffer_valid = true;
-                    }
-                }
                 if (!$buffer_valid && function_exists('openssl_random_pseudo_bytes')) {
                     $strong = false;
                     $buffer = openssl_random_pseudo_bytes($raw_salt_len, $strong);

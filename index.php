@@ -154,7 +154,7 @@
                 <img src="images/dark/video.svg" alt="Video Icon" class="dark-mode-element video-icon">
                 Video Demonstration
             </h2>
-            <a href="https://bit.ly/web-demo-vid" target="_blank" class="button watch-video-button">
+            <a href="https://youtu.be/xU79WyraRqQ" target="_blank" class="button watch-video-button">
                 <span>WATCH VIDEO
                     <img src="images/light/right-arrow.svg" alt="Right Arrow Icon" class="light-mode-element arrow-icon">
                     <img src="images/dark/right-arrow.svg" alt="Right Arrow Icon" class="dark-mode-element arrow-icon">
